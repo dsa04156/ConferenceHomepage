@@ -1,0 +1,66 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import ImportantDates from '../../../components/ImportantDates.astro';
+
+export async function getStaticPaths() {
+  const conferences = await getCollection('conference');
+  const paths = [];
+
+  for (const conf of conferences) {
+    const pages = conf.data.pages || {};
+    for (const [slug, pageData] of Object.entries(pages)) {
+      paths.push({
+        params: { year: conf.data.year, lang: conf.data.lang, slug },
+        props: { data: conf.data, pageData, slug },
+      });
+    }
+  }
+  return paths;
+}
+
+const { data, pageData, slug } = Astro.props;
+const { year, lang, meta, menu, importantDates, footer } = data;
+---
+
+<Layout title={`${pageData.title} - ${meta.title}`} lang={lang} year={year} menuLabels={menu}>
+  <!-- Hero Section (Smaller for subpages) -->
+  <section class="bg-[#003366] text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold">{pageData.title}</h1>
+      <p class="text-blue-200 mt-2">Home &gt; {pageData.title}</p>
+    </div>
+  </section>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <!-- Main Content Area -->
+      <div class="lg:col-span-2">
+        <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 prose prose-blue max-w-none">
+            <Fragment set:html={pageData.content} />
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-1">
+        <div class="sticky top-24 space-y-8">
+            <ImportantDates dates={importantDates} title={lang === 'ko' ? '주요 일정' : 'Important Dates'} />
+            
+            <!-- Additional Sidebar Widget -->
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h3 class="font-bold text-gray-900 mb-4">Sponsors</h3>
+                <div class="space-y-4">
+                    <div class="h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-sm">Sponsor Logo</div>
+                    <div class="h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-sm">Sponsor Logo</div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div slot="footer-content">
+    <p class="mb-2">{footer.copyright}</p>
+    <p class="text-sm text-gray-500">{footer.contact}</p>
+  </div>
+</Layout>
