@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+      
+      - name: Install, build, and upload your site
+        uses: withastro/action@v2
+        with:
+            path: ./conf-site 
+            # project root is in conf-site subdirectory based on previous context?
+            # Wait, let me check the file structure again.
+            # The user is in c:\Users\pro\Desktop\jinuk\project\homepage\conf-site
+            # But the git root seems to be c:\Users\pro\Desktop\jinuk\project\homepage based on previous git commands.
+            # "CWD: c:\Users\pro\Desktop\jinuk\project\homepage"
+            # "create mode 100644 conf-site/astro.config.mjs"
+            # So the astro project is inside a subdirectory `conf-site`.
+            
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

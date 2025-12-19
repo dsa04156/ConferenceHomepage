@@ -13,16 +13,33 @@ const { title, lang, year, menuLabels = {} } = Astro.props;
 // Helper to get the other language URL
 const currentPath = Astro.url.pathname;
 const segments = currentPath.split('/').filter(Boolean);
-// segments[0] is year, segments[1] is lang
 const otherLang = lang === 'ko' ? 'en' : 'ko';
 const otherLangLabel = lang === 'ko' ? 'English' : '한국어';
 
-// Reconstruct path
-const newSegments = [...segments];
-if (newSegments.length >= 2) {
-	newSegments[1] = otherLang;
+// Find and replace lang segment
+const langIndex = segments.indexOf(lang);
+if (langIndex !== -1) {
+    segments[langIndex] = otherLang;
 }
-const otherLangUrl = '/' + newSegments.join('/');
+const otherLangUrl = '/' + segments.join('/');
+
+const base = import.meta.env.BASE_URL;
+// Ensure base ends with slash if it's not just "/"
+const normalizePath = (path: string) => {
+    return path.startsWith('/') ? path : '/' + path;
+};
+
+// Function to construct URL respecting base
+// base usually ends with / if set in config? 
+// Actually Astro BASE_URL is /ConferenceHomepage/
+const getUrl = (path: string) => {
+    // path should be like "2025/ko/..."
+    // If base is "/", result is "/2025/ko/..."
+    // If base is "/Conf...", result is "/Conf.../2025/ko/..."
+    // remove leading slash from path if exists to avoid double slash with base
+    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+    return `${base}${cleanPath}`;
+};
 ---
 
 <!doctype html>
@@ -46,7 +63,7 @@ const otherLangUrl = '/' + newSegments.join('/');
 				<div class="flex items-center justify-between h-20">
 					<!-- Logo / Brand -->
 					<div class="flex-shrink-0 flex items-center">
-						<a href={`/${year}/${lang}`} class="group flex items-center gap-3">
+						<a href={getUrl(`${year}/${lang}`)} class="group flex items-center gap-3">
                             <div class="w-10 h-10 bg-[#003366] text-white rounded-lg flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-blue-800 transition-colors">
                                 M
                             </div>
@@ -82,7 +99,7 @@ const otherLangUrl = '/' + newSegments.join('/');
                                                                 <div class="py-1 px-1">
                                                                     {child.children.map((subChild) => (
                                                                         <a
-                                                                            href={`/${year}/${lang}/${subChild.href}`}
+                                                                            href={getUrl(`${year}/${lang}/${subChild.href}`)}
                                                                             class="block px-3 py-2 rounded-md text-xs text-gray-700 hover:bg-blue-50 hover:text-[#003366] transition-colors uppercase"
                                                                         >
                                                                             {(menuLabels && menuLabels[subChild.key]) || subChild.key}
@@ -94,7 +111,7 @@ const otherLangUrl = '/' + newSegments.join('/');
                                                     ) : (
                                                         <div class="px-1">
                                                             <a
-                                                                href={`/${year}/${lang}/${child.href}`}
+                                                                href={getUrl(`${year}/${lang}/${child.href}`)}
                                                                 class="block px-3 py-2 rounded-md text-xs text-gray-700 hover:bg-blue-50 hover:text-[#003366] font-medium transition-colors uppercase"
                                                             >
                                                                 {(menuLabels && menuLabels[child.key]) || child.key}
@@ -107,7 +124,7 @@ const otherLangUrl = '/' + newSegments.join('/');
                                     </div>
                                 ) : (
                                     <a
-                                        href={`/${year}/${lang}${item.href ? '/' + item.href : ''}`}
+                                        href={getUrl(`${year}/${lang}${item.href ? '/' + item.href : ''}`)}
                                         class="px-2 py-2 rounded-md text-xs font-bold text-gray-700 hover:text-[#003366] hover:bg-blue-50 transition-all duration-200 uppercase tracking-tight"
                                     >
                                         {(menuLabels && menuLabels[item.key]) || item.key}
@@ -162,7 +179,7 @@ const otherLangUrl = '/' + newSegments.join('/');
                                                 <div class="pl-4 space-y-1 border-l-2 border-gray-100 ml-3">
                                                     {child.children.map(subChild => (
                                                         <a
-                                                            href={`/${year}/${lang}/${subChild.href}`}
+                                                            href={getUrl(`${year}/${lang}/${subChild.href}`)}
                                                             class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-[#003366] hover:bg-blue-50"
                                                         >
                                                             - {(menuLabels && menuLabels[subChild.key]) || subChild.key}
@@ -172,7 +189,7 @@ const otherLangUrl = '/' + newSegments.join('/');
                                             </div>
                                         ) : (
                                             <a
-                                                href={`/${year}/${lang}/${child.href}`}
+                                                href={getUrl(`${year}/${lang}/${child.href}`)}
                                                 class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-[#003366] hover:bg-blue-50"
                                             >
                                                 {(menuLabels && menuLabels[child.key]) || child.key}
@@ -183,7 +200,7 @@ const otherLangUrl = '/' + newSegments.join('/');
                             </div>
                         ) : (
                             <a
-                                href={`/${year}/${lang}${item.href ? '/' + item.href : ''}`}
+                                href={getUrl(`${year}/${lang}${item.href ? '/' + item.href : ''}`)}
                                 class="block px-3 py-2 rounded-md text-base font-bold text-gray-700 hover:text-[#003366] hover:bg-blue-50"
                             >
                                 {(menuLabels && menuLabels[item.key]) || item.key}
