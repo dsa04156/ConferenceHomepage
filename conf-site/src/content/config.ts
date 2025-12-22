@@ -51,6 +51,40 @@ const conferenceCollection = defineCollection({
                 image: z.string().optional(),
             })
         ),
+        programSchedule: z
+            .array(
+                z.object({
+                    dateLabel: z.string(),
+                    sessions: z.array(
+                        z.object({
+                            time: z.string(),
+                            title: z.string(),
+                            speaker: z.string().optional(),
+                            location: z.string().optional(),
+                            note: z.string().optional(),
+                        })
+                    ),
+                })
+            )
+            .optional(),
+        workshopSchedules: z
+            .record(
+                z.array(
+                    z.object({
+                        dateLabel: z.string(),
+                        sessions: z.array(
+                            z.object({
+                                time: z.string(),
+                                title: z.string(),
+                                speaker: z.string().optional(),
+                                location: z.string().optional(),
+                                note: z.string().optional(),
+                            })
+                        ),
+                    })
+                )
+            )
+            .optional(),
         keynotes: z
             .array(
                 z.object({

@@ -5,6 +5,7 @@ import ImportantDates from "../../../components/ImportantDates.astro";
 import Sponsors from "../../../components/Sponsors.astro";
 import CommitteeGrid from "../../../components/CommitteeGrid.astro";
 import KeynoteCards from "../../../components/KeynoteCards.astro";
+import ProgramSchedule from "../../../components/ProgramSchedule.astro";
 
 export async function getStaticPaths() {
   const conferences = await getCollection("conference");
@@ -39,6 +40,8 @@ const {
   importantDates,
   partners = [],
   committee = [],
+  programSchedule = [],
+  workshopSchedules = {},
   keynotes = [],
   footer,
 } = data;
@@ -46,6 +49,9 @@ const {
 // Check if this is the committee page
 const isCommitteePage = slug === "committee";
 const isKeynotePage = slug === "keynote";
+const isProgramPage = slug === "program";
+const workshopScheduleForPage =
+  workshopSchedules && slug ? workshopSchedules[slug] : [];
 
 // Find the current main menu section for the sidebar
 const currentSection = MENU_ITEMS.find(
@@ -63,15 +69,26 @@ const sidebarTitle =
   (menu && currentSection && menu[currentSection.key]) || "Menu";
 const sidebarItems = currentSection?.children || [];
 
-// Convert Markdown to HTML
-const contentHtml = await marked.parse(pageData.content || "");
-
 const base = import.meta.env.BASE_URL;
 const getUrl = (path: string) => {
   const cleanPath = path.startsWith("/") ? path.slice(1) : path;
   const normalizedBase = base.endsWith("/") ? base : base + "/";
   return `${normalizedBase}${cleanPath}`;
 };
+
+// Convert Markdown to HTML with base-aware asset URLs
+const renderer = new marked.Renderer();
+renderer.image = (href, title, text) => {
+  if (!href) return "";
+  const rawHref = typeof href === "string" ? href : href?.href;
+  if (!rawHref) return "";
+  const src = rawHref.startsWith("http") ? rawHref : getUrl(rawHref);
+  const titleAttr = title ? ` title="${title}"` : "";
+  const altAttr = text ? text : "";
+  return `<img src="${src}" alt="${altAttr}"${titleAttr} />`;
+};
+
+const contentHtml = await marked.parse(pageData.content || "", { renderer });
 ---
 
 <Layout
@@ -145,11 +162,7 @@ const getUrl = (path: string) => {
                       )}
                     </div>
                   ))
-                ) : (
-                  <div class="px-6 py-4 text-sm text-gray-400 italic">
-                    No sub-items
-                  </div>
-                )
+                ) : null
               }
             </nav>
           </div>
@@ -211,6 +224,26 @@ const getUrl = (path: string) => {
                 <KeynoteCards items={keynotes} />
               </div>
             )
+          }
+
+          {
+            isProgramPage && programSchedule && programSchedule.length > 0 && (
+              <div class="mt-12">
+                <ProgramSchedule days={programSchedule} />
+              </div>
+            )
+          }
+
+          {
+            workshopScheduleForPage &&
+              workshopScheduleForPage.length > 0 && (
+                <div class="mt-12">
+                  <ProgramSchedule
+                    days={workshopScheduleForPage}
+                    title="Workshop Schedule"
+                  />
+                </div>
+              )
           }
         </div>
       </div>
