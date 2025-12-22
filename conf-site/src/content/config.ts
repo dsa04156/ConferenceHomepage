@@ -17,11 +17,13 @@ const conferenceCollection = defineCollection({
             location: z.string(),
             cta: z.string(),
             ctaLink: z.string(),
+            bgImage: z.string().optional(),
         }),
         importantDates: z.array(
             z.object({
                 label: z.string(),
-                date: z.string(), // YYYY-MM-DD format recommended for logic
+                date: z.string(),
+                note: z.string().optional(),
             })
         ),
         notice: z.array(
@@ -36,7 +38,7 @@ const conferenceCollection = defineCollection({
             z.object({
                 name: z.string(),
                 role: z.string(),
-                affiliation: z.string(),
+                affiliation: z.string().optional(),
                 image: z.string().optional(),
             })
         ),

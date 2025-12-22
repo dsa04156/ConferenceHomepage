@@ -2,6 +2,7 @@
 interface DateItem {
   label: string;
   date: string;
+  note?: string;
 }
 
 interface Props {
@@ -13,7 +14,7 @@ const { dates, title = "Important Dates" } = Astro.props;
 const today = new Date();
 today.setHours(0, 0, 0, 0);
 
-const processedDates = dates.map(item => {
+const processedDates = dates.map((item) => {
   const d = new Date(item.date);
   // Compare timestamps to be safe
   const isPast = d.getTime() < today.getTime();
@@ -25,38 +26,67 @@ let nearestIndex = -1;
 let minDiff = Infinity;
 
 processedDates.forEach((item, index) => {
-    if (!item.isPast) {
-        const diff = item.dateObj.getTime() - today.getTime();
-        if (diff < minDiff) {
-            minDiff = diff;
-            nearestIndex = index;
-        }
+  if (!item.isPast) {
+    const diff = item.dateObj.getTime() - today.getTime();
+    if (diff < minDiff) {
+      minDiff = diff;
+      nearestIndex = index;
     }
+  }
 });
 ---
 
-<div class="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+<div
+  class="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200"
+>
   <div class="bg-[#003366] px-6 py-4">
     <h3 class="text-xl font-bold text-white flex items-center">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 mr-2"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+        ></path>
       </svg>
       {title}
     </h3>
   </div>
   <div class="p-6">
     <ul class="space-y-4">
-      {processedDates.map((item, index) => (
-        <li class={`flex justify-between items-center p-3 rounded-md transition-all ${
-          item.isPast ? 'text-gray-400 line-through bg-gray-50' : 
-          index === nearestIndex ? 'bg-blue-50 ring-2 ring-blue-500 shadow-sm transform scale-[1.02]' : 'text-gray-700 hover:bg-gray-50'
-        }`}>
-          <span class="font-medium">{item.label}</span>
-          <span class={`font-bold ${index === nearestIndex ? 'text-blue-700' : ''}`}>
-            {item.date}
-          </span>
-        </li>
-      ))}
+      {
+        processedDates.map((item, index) => (
+          <li
+            class={`flex justify-between items-center p-3 rounded-md transition-all ${
+              item.isPast
+                ? "text-gray-400 line-through bg-gray-50"
+                : index === nearestIndex
+                  ? "bg-blue-50 ring-2 ring-blue-500 shadow-sm transform scale-[1.02]"
+                  : "text-gray-700 hover:bg-gray-50"
+            }`}
+          >
+            <div class="flex flex-col">
+              <span class="font-medium">{item.label}</span>
+              {item.note && (
+                <span class="text-[0.65rem] uppercase tracking-wide text-orange-500 font-bold">
+                  {item.note}
+                </span>
+              )}
+            </div>
+            <span
+              class={`font-bold ${index === nearestIndex ? "text-blue-700" : ""}`}
+            >
+              {item.date}
+            </span>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </div>

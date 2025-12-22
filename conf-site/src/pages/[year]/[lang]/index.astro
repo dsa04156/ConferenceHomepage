@@ -39,9 +39,21 @@ const getUrl = (path: string) => {
     class="relative bg-gray-900 text-white py-20 lg:py-32 overflow-hidden"
   >
     <div class="absolute inset-0 z-0">
-      <!-- Placeholder for hero background image -->
+      {
+        hero.bgImage ? (
+          <img
+            src={hero.bgImage}
+            alt="Conference Hero"
+            class="w-full h-full object-cover"
+          />
+        ) : (
+          <div class="w-full h-full bg-gradient-to-r from-[#003366] to-blue-900" />
+        )
+      }
+      <div class="absolute inset-0 bg-[#003366] mix-blend-multiply opacity-60">
+      </div>
       <div
-        class="absolute inset-0 bg-gradient-to-r from-[#003366] to-blue-900 opacity-90"
+        class="absolute inset-0 bg-gradient-to-t from-[#003366] via-transparent to-transparent opacity-80"
       >
       </div>
     </div>
@@ -119,18 +131,63 @@ const getUrl = (path: string) => {
           <h2
             class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-blue-900 pb-2 inline-block"
           >
-            About Conference
+            {lang === "ko" ? "컨퍼런스 소개" : "About Conference"}
           </h2>
-          <p class="text-lg text-gray-700 leading-relaxed">
-            {meta.description}
-            <br /><br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-          </p>
+          <div
+            class="prose prose-blue max-w-none text-lg text-gray-700 leading-relaxed"
+          >
+            <p>{meta.description}</p>
+            <p class="mt-4">
+              {
+                lang === "ko"
+                  ? "본 컨퍼런스는 멀티미디어 정보 기술 및 응용 분야의 최신 연구 성과를 공유하고 국내외 전문가들의 네트워킹을 위한 장입니다."
+                  : "This conference is a premier forum for sharing latest research results in multimedia information technology and applications and networking with international experts."
+              }
+            </p>
+            <div class="mt-6">
+              <a
+                href={getUrl(`${year}/${lang}/call-for-papers`)}
+                class="text-blue-700 font-bold hover:underline flex items-center"
+              >
+                {
+                  lang === "ko"
+                    ? "논문 모집 분야 확인하기"
+                    : "View Technical Scope & Call for Papers"
+                }
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 ml-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
         </section>
 
+        <section id="poster">
+          <h2
+            class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-blue-900 pb-2 inline-block"
+          >
+            {lang === "ko" ? "컨퍼런스 포스터" : "Conference Poster"}
+          </h2>
+          <div
+            class="bg-gray-50 p-4 rounded-xl shadow-inner flex justify-center"
+          >
+            <img
+              src="https://lh3.googleusercontent.com/sitesv/AAzXCkdpW58rrxHIgQ1DPIXT8glNMjJ5jBYpGrkpG89YyP4DDn223X8zOdAKtJHzKdisoq3qCZsmwmPsr9Q1D2XmRVwCbxArMVxXUpMhuhHEtoRY_n0CPV4fIyo7Tpaqg8Xc9p5GsQAqq7MN2VDJ5iObeRyfJlNgw9QufNAlhyrWW7Ts62xqhDGu9NQzR3ZC5suSjHQzZYQDLHOrUWOfwpu5kPZQ18f2XU9LHEeHG_0=w1280"
+              alt="MITA 2025 Poster"
+              class="rounded-lg shadow-2xl max-w-full h-auto cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
+            />
+          </div>
+        </section>
         <section id="committee">
           <h2
             class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-blue-900 pb-2 inline-block"
@@ -188,19 +245,27 @@ const getUrl = (path: string) => {
             title={lang === "ko" ? "주요 일정" : "Important Dates"}
           />
 
-          <!-- Additional Sidebar Widget (e.g. Sponsors) -->
+          <!-- Partners & Publication -->
           <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-            <h3 class="font-bold text-gray-900 mb-4">Sponsors</h3>
-            <div class="space-y-4">
+            <h3 class="font-bold text-gray-900 mb-4">
+              {lang === "ko" ? "협력 기관 및 출판" : "Partners & Publication"}
+            </h3>
+            <div class="space-y-6">
               <div
-                class="h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-sm"
+                class="bg-white p-4 rounded shadow-sm border border-gray-100 flex items-center justify-center"
               >
-                Sponsor Logo
+                <img
+                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkc6PJvj0_gUbp_11HE8qOgUUyYBJgYDk3sE99cHAuuHUhmNVHXNKcEA37OEDtjy8ZSlfQIft0jHTaFVMbaDjhpbkz6ppoj7O0w3a1gXtTQbYzGy4jL48rXT2A1atZX4ogrRBE8u4mbXdjKIUallNTdvy88gzHiALFQN2EiWA6MAqYe23aB8a1Maj1uord_yyi1Cd9BXRkG8B9NZj2LVc4I3WsX-qepfK24aTIg=w1280"
+                  alt="Springer CCIS"
+                  class="max-h-16 h-auto"
+                />
               </div>
-              <div
-                class="h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-sm"
-              >
-                Sponsor Logo
+              <div class="text-center text-xs text-gray-500 italic">
+                {
+                  lang === "ko"
+                    ? "채택된 논문은 Springer CCIS 시리즈로 출판됩니다."
+                    : "Accepted papers will be published in Springer CCIS series."
+                }
               </div>
             </div>
           </div>

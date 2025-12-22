@@ -32,26 +32,35 @@
         "title": "MITA 2025",
         "subtitle": "International Conference on Multimedia Information Technology and Applications",
         "date": "2025년 7월 21일(월) - 24일(목)",
-        "location": "장소 미정 (추후 공지)",
+        "location": "제주 그랜드 하얏트 (Grand Hyatt Jeju)",
         "cta": "논문 제출하기",
-        "ctaLink": "submission"
+        "ctaLink": "submission",
+        "bgImage": "https://lh3.googleusercontent.com/sitesv/AAzXCkePbeARJSx8P8TyZ7o9p-TVPouAlSwHo2tA2vsM_wpMvgSp8Lx2P5EblMfnyAebrBOXzw-rEA43SlHwd-eEFrqeDlRHZu2GqxiEG7LZDIVAps5X2dvqRl0P5uTQ1WnftSVs84HB2krFb8q4S57y3WGuokvfnbq5BndAV1LRAw5WfuZHHfIsFeaFVJU=w16383"
     },
     "importantDates": [
         {
-            "label": "논문 제출 마감",
-            "date": "2025-04-01"
+            "label": "논문 제출 마감 (정기/단기)",
+            "date": "2025-06-25",
+            "note": "연장됨"
         },
         {
             "label": "심사 결과 통보",
-            "date": "2025-05-15"
+            "date": "2025-06-30",
+            "note": "연장됨"
         },
         {
-            "label": "최종 논문 제출",
-            "date": "2025-06-01"
+            "label": "최종 논문 및 카메라 버전 제출",
+            "date": "2025-07-04",
+            "note": "연장됨"
         },
         {
-            "label": "조기 등록 마감",
-            "date": "2025-06-10"
+            "label": "사전 등록 마감",
+            "date": "2025-07-13",
+            "note": "연장됨"
+        },
+        {
+            "label": "MITA 2025 컨퍼런스",
+            "date": "2025-07-21"
         }
     ],
     "notice": [
@@ -68,15 +77,15 @@
         },
         "workshops/ccms-workshop": {
             "title": "CCMS 워크샵",
-            "content": "<p>CCMS 워크샵 관련 정보입니다.</p>"
+            "content": "<h3>Topics For CCMS</h3><ul><li>Theory of Multimedia & Communication Systems</li><li>Nonlinear Devices and Communication Systems</li><li>Power or Energy Systems for Communication</li><li>Problems in Actual Systems and Empirical Approaches</li><li>Distributed Networks and Algorithms</li><li>Nonlinearity in Radar and Tomography Measurements</li><li>Neural and Biological Systems Based on Knowledge and Technique of Communication Systems</li><li>Electromagnetic Wave Propagation Theory and Modeling</li><li>Multimedia Communication System</li><li>Multimedia Signal Processing for Communication</li><li>Multimedia Contents and IT Convergence</li><li>Multimedia Information Processing and Systems</li></ul>"
         },
         "workshops/ccms-workshop/ccms-submission": {
             "title": "CCMS 논문 제출",
-            "content": "<p>CCMS 워크샵 논문 제출 페이지입니다.</p>"
+            "content": "<p>CCMS 워크샵 논문은 학술대회 논문 제출 시스템(CMT)에서 CCMS 트랙을 선택하여 제출하실 수 있습니다.</p><p><a href='https://cmt3.research.microsoft.com/MITA2025' class='text-blue-600 hover:underline'>CMT 제출 시스템 바로가기</a></p>"
         },
         "workshops/ccms-workshop/ccms-program-schedule": {
             "title": "CCMS 프로그램",
-            "content": "<p>CCMS 워크샵 프로그램 일정입니다.</p>"
+            "content": "<p>CCMS 워크샵 프로그램 일정은 추후 업데이트될 예정입니다.</p>"
         },
         "workshops/wsis2025": {
             "title": "WSIS 2025",
@@ -96,54 +105,71 @@
         },
         "call-for-papers": {
             "title": "논문 모집",
-            "content": "<p>MITA 2025 논문 모집 안내입니다.</p>"
+            "content": "<h3>Technical Scope</h3><p>Topics include, but are not limited to:</p><ul><li>Artificial Intelligence</li><li>Multimedia System</li><li>Database in Multimedia</li><li>Multimedia Applications</li><li>Graphics and 3D Modeling</li><li>Embedded System in Multimedia</li><li>Multimedia Information Security</li><li>Human Computer Interaction</li><li>Multimedia Contents</li><li>Internet Technology and Social Media</li><li>Digital Signal, Image and Video Processing</li><li>Multimedia Networks and Communication</li><li>Game and Media Arts</li><li>Virtual Reality</li></ul>"
         },
         "call-for-papers/call-for-conference-paper": {
             "title": "학술대회 논문 모집",
-            "content": "<p>학술대회 논문 모집 상세 내용입니다.</p>"
+            "content": "<h3>Paper Submission Guidelines</h3><ul><li>Maximum length: 2 pages (short paper) or 3-4 pages (regular paper).</li><li>Format: A4 size, single space, double column, Times New Roman font (size 10).</li><li>Accepted papers will be published by Springer in the <b>Communications in Computer and Information Science (CCIS)</b> series.</li><li>Springer CCIS is indexed in SCOPUS, EI Compendex, etc.</li></ul><p>At least one author of each accepted paper must present the paper at the conference.</p><p><a href='https://cmt3.research.microsoft.com/MITA2025' class='text-blue-600 hover:underline'>Submit your paper via Microsoft CMT</a></p>"
         },
         "call-for-papers/call-for-journal-paper": {
             "title": "저널 논문 모집",
-            "content": "<p>저널 논문 모집 상세 내용입니다.</p>"
+            "content": "<h3>Journal Track (JMIS)</h3><p>Journal of Multimedia Information System (JMIS)와의 협력을 통해 우수 논문을 저널에 게재할 수 있는 기회를 제공합니다.</p><h4>Dual Publication Track</h4><p>이 트랙에 제출된 논문은 JMIS 게재를 위한 심사를 거치며, 채택된 논문은 MITA 2025에서 구두 발표를 하게 됩니다. 전체 논문은 JMIS에 게재되며 학술대회 프로시딩에는 초록만 실리게 됩니다.</p><p><a href='https://www.manuscriptlink.com/journals/jmis' class='text-blue-600 hover:underline'>JMIS 제출 사이트 바로가기</a> (Submission type으로 'MITA 2025 Journal Track' 선택 필수)</p>"
         },
         "call-for-papers/call-for-workshop": {
             "title": "워크샵 모집",
-            "content": "<p>워크샵 제안 모집 상세 내용입니다.</p>"
+            "content": "<h3>Call for Workshops</h3><p>MITA 2025와 함께 개최될 워크샵 제안을 모집합니다.</p><ul><li>Proposal Deadline: April 11, 2025</li><li>Notification: April 18, 2025</li><li>Submission Email: <a href='mailto:kmms1@kmms.or.kr'>kmms1@kmms.or.kr</a></li></ul>"
         },
         "committee": {
             "title": "조직위원회",
-            "content": "<p>조직위원회 명단은 추후 업데이트될 예정입니다.</p>"
+            "content": "<p>MITA 2025를 이끌어주시는 위원회 명단입니다.</p>"
         },
         "important-dates": {
             "title": "주요 일정",
-            "content": "<p>학회 주요 일정을 확인하세요.</p>"
+            "content": "<p>학회 주요 일정 (연장된 일정 확인 필수)입니다.</p>"
         },
         "keynote": {
             "title": "기조연설",
-            "content": "<p>기조연설 정보는 추후 업데이트될 예정입니다.</p>"
+            "content": "<h3>Keynote Speakers</h3><div class='grid grid-cols-1 md:grid-cols-2 gap-8'><div><h4>Prof. Hyun Myung (KAIST)</h4><p><b>Spatial AI and Autonomous Robot Navigation Technology</b></p></div><div><h4>Prof. Mikio Hasegawa (Tokyo University of Science)</h4><p><b>Applications of Complex Communication Sciences in Next Generation Wireless Communication Systems</b></p></div><div><h4>Prof. Dan Dongseong Kim (University of Queensland)</h4><p><b>Advances in Cybersecurity Modeling and Analysis: Methods, Applications, and Lessons Learned</b></p></div><div><h4>Prof. Byoung Chul Ko (Keimyung University)</h4><p><b>The Present and Future of Explainable AI (XAI): Toward Trustworthy Artificial Intelligence</b></p></div></div>"
         },
         "program": {
             "title": "프로그램",
-            "content": "<p>상세 프로그램은 학회 개최 임박 시 공지됩니다.</p>"
+            "content": "<p>상세 프로그램 일정은 추후 공지될 예정입니다.</p>"
         },
         "submission": {
             "title": "논문 제출",
-            "content": "<p>MITA 2025의 논문은 동료 심사 과정을 거쳐 CCIS(Springer) 시리즈 논문집에 게재될 예정입니다.</p><p>Microsoft CMT 서비스를 통해 논문을 제출해 주시기 바랍니다.</p><a href='https://cmt3.research.microsoft.com/' class='text-blue-600 hover:underline'>Go to Submission System</a>"
+            "content": "<p><b>Submission Link:</b> <a href='https://cmt3.research.microsoft.com/MITA2025' class='text-blue-600 hover:underline font-bold'>Microsoft CMT MITA2025 바로가기</a></p><p>MITA 2025의 논문은 동료 심사 과정을 거쳐 Communications in Computer and Information Science (CCIS) 시리즈 논문집에 게재될 예정입니다.</p>"
         },
         "registration": {
             "title": "등록 안내",
-            "content": "<p>등록 관련 정보는 추후 공지됩니다.</p>"
+            "content": "<p>등록 관련 상세 정보입니다.</p>"
         },
         "registration/registration-fee": {
             "title": "등록비 안내",
-            "content": "<p>등록비 상세 정보입니다.</p>"
+            "content": "<h3>Registration Fees</h3><div class='overflow-x-auto'><table class='min-w-full border-collapse border border-gray-200'><thead><tr class='bg-gray-50'><th>Category</th><th>Local (KRW)</th><th>Overseas (USD)</th></tr></thead><tbody><tr><td>Full Registration (Faculty/Researcher)</td><td>600,000 KRW</td><td>450 USD</td></tr><tr><td>Student Registration</td><td>400,000 KRW</td><td>300 USD</td></tr></tbody></table></div><p class='mt-4'><a href='https://kmms.or.kr/pay' class='bg-[#003366] text-white px-6 py-2 rounded-md inline-block'>결제 페이지 바로가기 (국내)</a></p>"
         },
         "venue-hotel": {
             "title": "장소 및 숙박",
-            "content": "<p>개최 장소 및 추천 호텔 정보는 추후 공지됩니다.</p>"
+            "content": "<h3>Grand Hyatt Jeju (그랜드 하얏트 제주)</h3><p>12 Noyeon-ro, Jeju-si, Korea.Rep</p><div class='my-6'><img src='https://lh3.googleusercontent.com/sitesv/AAzXCkeLnGYpfu3QdVTjvzYjc5uxgPqFV0GIRIEgm_ZfsU94XTRB5t62gusXcRE35-ZhVhspPTJQe4Yzp8cr09PjkBMmXOKoAutV7ZW_R2gMumEQ8aEFmObPQpVzUU1MpeVxda9qTjB_GVI2dvI7l4PGaoAbkqR8lqLyNhsPB7ZbkH2jnPW6ftM6Wq1BUrFoozTVozw-8DPc3k1BzgtdkeuW_QW-Th1c99Z8qmdG=w1280' class='rounded-xl shadow-lg w-full max-w-2xl' /></div><h3>Transportation (교통편)</h3><p>제주국제공항(CJU)에서 약 3.5km 거리에 위치하고 있습니다.</p><ul><li><b>Taxi:</b> 공항에서 약 10분 소요 (기사님께 '그랜드 하얏트 제주' 또는 '드림타워'라고 말씀하세요)</li><li><b>Bus:</b> 316번, 465번 등 (원노형 정류장 하차)</li></ul>"
         }
     },
-    "committee": [],
+    "committee": [
+        {
+            "role": "General Chair",
+            "name": "Byung Gyu Kim (Sookmyung Women’s University, S.Korea)"
+        },
+        {
+            "role": "Organizing Committee Co-Chairs",
+            "name": "Namje Park (Jeju National University, S.Korea), Hiroo Sekiya (Chiba University, Japan)"
+        },
+        {
+            "role": "Program Committee Co-Chairs",
+            "name": "Deokwoo Lee (Keimyung University, S.Korea), Hidehiro Nakano (Tokyo City University, Japan), Wen-Huang Cheng (National Taiwan University, Taiwan)"
+        },
+        {
+            "role": "CCMS Organizing Committee Co-Chairs",
+            "name": "Young-Woo Kwon (Kyungpook National University, S.Korea), Atsushi Uchida (Saitama University, Japan)"
+        }
+    ],
     "footer": {
         "copyright": "© 2025 MITA. All Rights Reserved.",
         "contact": "Tel: +82-51-712-9602 / E-mail: kmms1@kmms.or.kr"

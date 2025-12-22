@@ -32,26 +32,35 @@
         "title": "MITA 2025",
         "subtitle": "International Conference on Multimedia Information Technology and Applications",
         "date": "July 21 (Mon) - 24 (Thu), 2025",
-        "location": "To Be Announced",
+        "location": "Grand Hyatt Jeju, Republic of Korea",
         "cta": "Submit Paper",
-        "ctaLink": "submission"
+        "ctaLink": "submission",
+        "bgImage": "https://lh3.googleusercontent.com/sitesv/AAzXCkePbeARJSx8P8TyZ7o9p-TVPouAlSwHo2tA2vsM_wpMvgSp8Lx2P5EblMfnyAebrBOXzw-rEA43SlHwd-eEFrqeDlRHZu2GqxiEG7LZDIVAps5X2dvqRl0P5uTQ1WnftSVs84HB2krFb8q4S57y3WGuokvfnbq5BndAV1LRAw5WfuZHHfIsFeaFVJU=w16383"
     },
     "importantDates": [
         {
-            "label": "Paper Submission Deadline",
-            "date": "2025-04-01"
+            "label": "Paper Submission (Regular / Short Papers)",
+            "date": "2025-06-25",
+            "note": "Extended"
         },
         {
-            "label": "Acceptance Notification",
-            "date": "2025-05-15"
+            "label": "Author Notification (Regular / Short Papers)",
+            "date": "2025-06-30",
+            "note": "Extended"
         },
         {
-            "label": "Camera-Ready Paper",
-            "date": "2025-06-01"
+            "label": "Full and Camera-ready Paper",
+            "date": "2025-07-04",
+            "note": "Extended"
         },
         {
-            "label": "Early Registration",
-            "date": "2025-06-10"
+            "label": "Pre-registration Deadline",
+            "date": "2025-07-13",
+            "note": "Extended"
+        },
+        {
+            "label": "MITA 2025 Conference",
+            "date": "2025-07-21"
         }
     ],
     "notice": [
@@ -68,15 +77,15 @@
         },
         "workshops/ccms-workshop": {
             "title": "CCMS Workshop",
-            "content": "<p>Information about CCMS Workshop.</p>"
+            "content": "<h3>Topics For CCMS</h3><ul><li>Theory of Multimedia & Communication Systems</li><li>Nonlinear Devices and Communication Systems</li><li>Power or Energy Systems for Communication</li><li>Problems in Actual Systems and Empirical Approaches</li><li>Distributed Networks and Algorithms</li><li>Nonlinearity in Radar and Tomography Measurements</li><li>Neural and Biological Systems Based on Knowledge and Technique of Communication Systems</li><li>Electromagnetic Wave Propagation Theory and Modeling</li><li>Multimedia Communication System</li><li>Multimedia Signal Processing for Communication</li><li>Multimedia Contents and IT Convergence</li><li>Multimedia Information Processing and Systems</li></ul>"
         },
         "workshops/ccms-workshop/ccms-submission": {
             "title": "CCMS Submission",
-            "content": "<p>CCMS Workshop submission page.</p>"
+            "content": "<p>Papers submitted to the CCMS Workshop can be submitted through the conference submission system (CMT) by selecting the CCMS track.</p><p><a href='https://cmt3.research.microsoft.com/MITA2025' class='text-blue-600 hover:underline'>Go to Microsoft CMT</a></p>"
         },
         "workshops/ccms-workshop/ccms-program-schedule": {
             "title": "CCMS Program",
-            "content": "<p>CCMS Workshop program schedule.</p>"
+            "content": "<p>CCMS Workshop program schedule will be updated soon.</p>"
         },
         "workshops/wsis2025": {
             "title": "WSIS 2025",
@@ -96,31 +105,31 @@
         },
         "call-for-papers": {
             "title": "Call for Papers",
-            "content": "<p>Call for Papers for MITA 2025.</p>"
+            "content": "<h3>Technical Scope</h3><p>Topics include, but are not limited to:</p><ul><li>Artificial Intelligence</li><li>Multimedia System</li><li>Database in Multimedia</li><li>Multimedia Applications</li><li>Graphics and 3D Modeling</li><li>Embedded System in Multimedia</li><li>Multimedia Information Security</li><li>Human Computer Interaction</li><li>Multimedia Contents</li><li>Internet Technology and Social Media</li><li>Digital Signal, Image and Video Processing</li><li>Multimedia Networks and Communication</li><li>Game and Media Arts</li><li>Virtual Reality</li></ul>"
         },
         "call-for-papers/call-for-conference-paper": {
             "title": "Call for Conference Paper",
-            "content": "<p>Details for conference paper submission.</p>"
+            "content": "<h3>Paper Submission Guidelines</h3><ul><li>Maximum length: 2 pages (short paper) or 3-4 pages (regular paper).</li><li>Format: A4 size, single space, double column, Times New Roman font (size 10).</li><li>Accepted papers will be published by Springer in the <b>Communications in Computer and Information Science (CCIS)</b> series.</li><li>Springer CCIS is indexed in SCOPUS, EI Compendex, etc.</li></ul><p>At least one author of each accepted paper must present the paper at the conference.</p><p><a href='https://cmt3.research.microsoft.com/MITA2025' class='text-blue-600 hover:underline'>Submit your paper via Microsoft CMT</a></p>"
         },
         "call-for-papers/call-for-journal-paper": {
             "title": "Call for Journal Paper",
-            "content": "<p>Details for journal paper submission.</p>"
+            "content": "<h3>Journal Track (JMIS)</h3><p>We are pleased to announce a special Journal Track for MITA 2025, in collaboration with the Journal of Multimedia Information System (JMIS).</p><h4>Dual Publication Track</h4><p>Papers submitted to this track will undergo peer review for potential publication in JMIS. Authors of accepted papers will be invited to give oral presentations at MITA 2025, and only the abstracts will appear in the MITA proceedings. Full papers will be published in JMIS.</p><p><a href='https://www.manuscriptlink.com/journals/jmis' class='text-blue-600 hover:underline'>Go to JMIS Submission Site</a> (Ensure to select 'MITA 2025 Journal Track' as submission type)</p>"
         },
         "call-for-papers/call-for-workshop": {
             "title": "Call for Workshop",
-            "content": "<p>Details for workshop proposals.</p>"
+            "content": "<h3>Call for Workshop Proposals</h3><p>We are soliciting proposals for workshops to be held together with MITA 2025.</p><ul><li>Proposal Deadline: April 11, 2025</li><li>Notification: April 18, 2025</li><li>Submission Email: <a href='mailto:kmms1@kmms.or.kr'>kmms1@kmms.or.kr</a></li></ul>"
         },
         "committee": {
             "title": "Committee",
-            "content": "<p>Committee members will be updated soon.</p>"
+            "content": "<p>Meet the committee members organizing MITA 2025.</p>"
         },
         "important-dates": {
             "title": "Important Dates",
-            "content": "<p>Check the important dates for the conference.</p>"
+            "content": "<p>Check the important dates for the conference (Note the extended deadlines).</p>"
         },
         "keynote": {
             "title": "Keynote Speakers",
-            "content": "<p>Keynote speakers will be announced soon.</p>"
+            "content": "<h3>Keynote Speakers</h3><div class='grid grid-cols-1 md:grid-cols-2 gap-8'><div><h4>Prof. Hyun Myung (KAIST)</h4><p><b>Spatial AI and Autonomous Robot Navigation Technology</b></p></div><div><h4>Prof. Mikio Hasegawa (Tokyo University of Science)</h4><p><b>Applications of Complex Communication Sciences in Next Generation Wireless Communication Systems</b></p></div><div><h4>Prof. Dan Dongseong Kim (University of Queensland)</h4><p><b>Advances in Cybersecurity Modeling and Analysis: Methods, Applications, and Lessons Learned</b></p></div><div><h4>Prof. Byoung Chul Ko (Keimyung University)</h4><p><b>The Present and Future of Explainable AI (XAI): Toward Trustworthy Artificial Intelligence</b></p></div></div>"
         },
         "program": {
             "title": "Program",
@@ -128,22 +137,39 @@
         },
         "submission": {
             "title": "Submission",
-            "content": "<p>Papers of MITA 2025, based on the peer review process, will be published in the proceedings of CCIS(Springer) series.</p><p>Please submit your paper via Microsoft CMT service.</p><a href='https://cmt3.research.microsoft.com/' class='text-blue-600 hover:underline'>Go to Submission System</a>"
+            "content": "<p><b>Submission Link:</b> <a href='https://cmt3.research.microsoft.com/MITA2025' class='text-blue-600 hover:underline font-bold'>Microsoft CMT MITA2025</a></p><p>Papers of MITA 2025, based on the peer review process, will be published in the proceedings of Communications in Computer and Information Science (CCIS) series by Springer.</p>"
         },
         "registration": {
             "title": "Registration",
-            "content": "<p>Registration information will be announced soon.</p>"
+            "content": "<p>Information about conference registration.</p>"
         },
         "registration/registration-fee": {
             "title": "Registration Fee",
-            "content": "<p>Details about registration fees.</p>"
+            "content": "<h3>Registration Fees</h3><div class='overflow-x-auto'><table class='min-w-full border-collapse border border-gray-200'><thead><tr class='bg-gray-50'><th>Category</th><th>Local (KRW)</th><th>Overseas (USD)</th></tr></thead><tbody><tr><td>Full Registration (Faculty/Researcher)</td><td>600,000 KRW</td><td>450 USD</td></tr><tr><td>Student Registration</td><td>400,000 KRW</td><td>300 USD</td></tr></tbody></table></div><p class='mt-4'><a href='https://kmms.or.kr/pay' class='bg-[#003366] text-white px-6 py-2 rounded-md inline-block'>Go to Payment Page (Local/International)</a></p>"
         },
         "venue-hotel": {
             "title": "Venue & Hotel",
-            "content": "<p>Venue and hotel information will be announced soon.</p>"
+            "content": "<h3>Grand Hyatt Jeju</h3><p>12 Noyeon-ro, Jeju-si, Korea.Rep</p><div class='my-6'><img src='https://lh3.googleusercontent.com/sitesv/AAzXCkeLnGYpfu3QdVTjvzYjc5uxgPqFV0GIRIEgm_ZfsU94XTRB5t62gusXcRE35-ZhVhspPTJQe4Yzp8cr09PjkBMmXOKoAutV7ZW_R2gMumEQ8aEFmObPQpVzUU1MpeVxda9qTjB_GVI2dvI7l4PGaoAbkqR8lqLyNhsPB7ZbkH2jnPW6ftM6Wq1BUrFoozTVozw-8DPc3k1BzgtdkeuW_QW-Th1c99Z8qmdG=w1280' class='rounded-xl shadow-lg w-full max-w-2xl' /></div><h3>Transportation</h3><p>Located approximately 3.5 kilometers from Jeju International Airport (CJU).</p><ul><li><b>Taxi:</b> About 10 minutes from the airport. Ask for 'Grand Hyatt Jeju' or 'Jeju Dream Tower'.</li><li><b>Public Bus:</b> Routes 316, 465, etc. Alight at Wonnohyeong stop.</li></ul>"
         }
     },
-    "committee": [],
+    "committee": [
+        {
+            "role": "General Chair",
+            "name": "Byung Gyu Kim (Sookmyung Women’s University, S.Korea)"
+        },
+        {
+            "role": "Organizing Committee Co-Chairs",
+            "name": "Namje Park (Jeju National University, S.Korea), Hiroo Sekiya (Chiba University, Japan)"
+        },
+        {
+            "role": "Program Committee Co-Chairs",
+            "name": "Deokwoo Lee (Keimyung University, S.Korea), Hidehiro Nakano (Tokyo City University, Japan), Wen-Huang Cheng (National Taiwan University, Taiwan)"
+        },
+        {
+            "role": "CCMS Organizing Committee Co-Chairs",
+            "name": "Young-Woo Kwon (Kyungpook National University, S.Korea), Atsushi Uchida (Saitama University, Japan)"
+        }
+    ],
     "footer": {
         "copyright": "© 2025 MITA. All Rights Reserved.",
         "contact": "Tel: +82-51-712-9602 / E-mail: kmms1@kmms.or.kr"
