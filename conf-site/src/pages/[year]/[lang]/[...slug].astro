@@ -1,17 +1,21 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../../layouts/Layout.astro';
-import ImportantDates from '../../../components/ImportantDates.astro';
+import { getCollection } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+import ImportantDates from "../../../components/ImportantDates.astro";
+import Sponsors from "../../../components/Sponsors.astro";
+import CommitteeGrid from "../../../components/CommitteeGrid.astro";
+import KeynoteCards from "../../../components/KeynoteCards.astro";
 
 export async function getStaticPaths() {
-  const conferences = await getCollection('conference');
+  const conferences = await getCollection("conference");
+  const enConferences = conferences.filter((conf) => conf.data.lang === "en");
   const paths = [];
 
-  for (const conf of conferences) {
+  for (const conf of enConferences) {
     const year = String(conf.data.year);
     const lang = String(conf.data.lang);
     const pages = conf.data.pages || {};
-    
+
     for (const [slug, pageData] of Object.entries(pages)) {
       if (!slug) continue;
       paths.push({
@@ -23,48 +27,198 @@ export async function getStaticPaths() {
   return paths;
 }
 
+import { marked } from "marked";
+import { MENU_ITEMS } from "../../../config/menu";
+
 const { data, pageData, slug } = Astro.props;
-const { year, lang, meta, menu, importantDates, footer } = data;
+const {
+  year,
+  lang,
+  meta,
+  menu,
+  importantDates,
+  partners = [],
+  committee = [],
+  keynotes = [],
+  footer,
+} = data;
+
+// Check if this is the committee page
+const isCommitteePage = slug === "committee";
+const isKeynotePage = slug === "keynote";
+
+// Find the current main menu section for the sidebar
+const currentSection = MENU_ITEMS.find(
+  (item) =>
+    item.href === slug ||
+    (item.children &&
+      item.children.some(
+        (child) =>
+          child.href === slug ||
+          (child.children && child.children.some((sub) => sub.href === slug)),
+      )),
+);
+
+const sidebarTitle =
+  (menu && currentSection && menu[currentSection.key]) || "Menu";
+const sidebarItems = currentSection?.children || [];
+
+// Convert Markdown to HTML
+const contentHtml = await marked.parse(pageData.content || "");
+
+const base = import.meta.env.BASE_URL;
+const getUrl = (path: string) => {
+  const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+  const normalizedBase = base.endsWith("/") ? base : base + "/";
+  return `${normalizedBase}${cleanPath}`;
+};
 ---
 
-<Layout title={`${pageData.title} - ${meta.title}`} lang={lang} year={year} menuLabels={menu}>
-  <!-- Hero Section (Smaller for subpages) -->
-  <section class="bg-[#003366] text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold">{pageData.title}</h1>
-      <p class="text-blue-200 mt-2">Home &gt; {pageData.title}</p>
+<Layout
+  title={`${pageData.title} - ${meta.title}`}
+  lang={lang}
+  year={year}
+  menuLabels={menu}
+>
+  <!-- Subpage Header (ICUFN Style) -->
+  <section class="bg-[#1a3050] text-white py-12 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div
+        class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"
+      >
+      </div>
+    </div>
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left"
+    >
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight uppercase">
+        {pageData.title}
+      </h1>
+      <div
+        class="flex items-center justify-center lg:justify-start gap-2 text-blue-200 mt-4 text-sm font-medium"
+      >
+        <a
+          href={getUrl(`${year}/${lang}`)}
+          class="hover:text-white transition-colors">HOME</a
+        >
+        <span>/</span>
+        <span class="text-white uppercase">{pageData.title}</span>
+      </div>
     </div>
   </section>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-      <!-- Main Content Area -->
-      <div class="lg:col-span-2">
-        <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 prose prose-blue max-w-none">
-            <Fragment set:html={pageData.content} />
-        </div>
-      </div>
-
-      <!-- Sidebar -->
-      <div class="lg:col-span-1">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+      <!-- Sidebar Navigation -->
+      <aside class="lg:col-span-1">
         <div class="sticky top-24 space-y-8">
-            <ImportantDates dates={importantDates} title={lang === 'ko' ? '주요 일정' : 'Important Dates'} />
-            
-            <!-- Additional Sidebar Widget -->
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                <h3 class="font-bold text-gray-900 mb-4">Sponsors</h3>
-                <div class="space-y-4">
-                    <div class="h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-sm">Sponsor Logo</div>
-                    <div class="h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-sm">Sponsor Logo</div>
-                </div>
+          <div
+            class="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden shadow-sm"
+          >
+            <div class="bg-[#003366] px-6 py-4">
+              <h2 class="text-lg font-bold text-white uppercase tracking-wider">
+                {sidebarTitle}
+              </h2>
             </div>
+            <nav class="py-2">
+              {
+                sidebarItems.length > 0 ? (
+                  sidebarItems.map((item) => (
+                    <div class="px-2">
+                      <a
+                        href={getUrl(`${year}/${lang}/${item.href}`)}
+                        class={`block px-4 py-3 rounded-lg text-sm font-bold uppercase transition-all ${slug === item.href ? "bg-blue-600 text-white shadow-md transform translate-x-1" : "text-gray-600 hover:bg-blue-50 hover:text-blue-700"}`}
+                      >
+                        {(menu && menu[item.key]) || item.key}
+                      </a>
+                      {item.children && slug.startsWith(item.href) && (
+                        <div class="pl-6 mt-1 space-y-1 pb-2">
+                          {item.children.map((sub) => (
+                            <a
+                              href={getUrl(`${year}/${lang}/${sub.href}`)}
+                              class={`block px-4 py-2 rounded-md text-xs font-bold uppercase transition-colors ${slug === sub.href ? "text-blue-700 bg-blue-50" : "text-gray-500 hover:text-blue-600"}`}
+                            >
+                              - {(menu && menu[sub.key]) || sub.key}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))
+                ) : (
+                  <div class="px-6 py-4 text-sm text-gray-400 italic">
+                    No sub-items
+                  </div>
+                )
+              }
+            </nav>
+          </div>
+
+          <ImportantDates dates={importantDates} title="Important Dates" />
+          <Sponsors partners={partners} />
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <div class="lg:col-span-3">
+        <div
+          class="bg-white p-6 md:p-10 rounded-2xl shadow-xl border border-gray-100 min-h-[600px]"
+        >
+          <!-- Post Header Meta -->
+          <div
+            class="flex justify-between items-center mb-8 border-b border-gray-100 pb-4"
+          >
+            <h2
+              class="text-2xl font-bold text-[#1a3050] border-l-4 border-blue-600 pl-4"
+            >
+              {pageData.title}
+            </h2>
+            <button
+              onclick="window.history.back()"
+              class="text-xs font-bold text-gray-400 hover:text-blue-600 flex items-center gap-1 uppercase tracking-widest transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg
+              >
+              Back to List
+            </button>
+          </div>
+
+          <div class="prose max-w-none prose-slate">
+            <Fragment set:html={contentHtml} />
+          </div>
+
+          {
+            isCommitteePage && committee && committee.length > 0 && (
+              <div class="mt-12">
+                <CommitteeGrid members={committee} />
+              </div>
+            )
+          }
+
+          {
+            isKeynotePage && keynotes && keynotes.length > 0 && (
+              <div class="mt-12">
+                <KeynoteCards items={keynotes} />
+              </div>
+            )
+          }
         </div>
       </div>
     </div>
   </div>
 
   <div slot="footer-content">
-    <p class="mb-2">{footer.copyright}</p>
+    <p class="mb-2 font-medium">{footer.copyright}</p>
     <p class="text-sm text-gray-500">{footer.contact}</p>
   </div>
 </Layout>

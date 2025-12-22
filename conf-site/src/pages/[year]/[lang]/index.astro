@@ -3,10 +3,12 @@ import { getCollection } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import ImportantDates from "../../../components/ImportantDates.astro";
 import NoticeBoard from "../../../components/NoticeBoard.astro";
+import Sponsors from "../../../components/Sponsors.astro";
 
 export async function getStaticPaths() {
   const conferences = await getCollection("conference");
-  return conferences.map((conf) => ({
+  const enConferences = conferences.filter((conf) => conf.data.lang === "en");
+  return enConferences.map((conf) => ({
     params: { year: String(conf.data.year), lang: String(conf.data.lang) },
     props: { data: conf.data },
   }));
@@ -19,6 +21,8 @@ const {
   meta,
   menu,
   hero,
+  posterImage,
+  partners = [],
   importantDates,
   notice = [],
   committee,
@@ -27,8 +31,16 @@ const {
 
 const base = import.meta.env.BASE_URL;
 const getUrl = (path: string) => {
-  const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+  if (!path) return "";
+  if (path.startsWith("http")) return path;
+
   const normalizedBase = base.endsWith("/") ? base : base + "/";
+  // Remove leading slash from path to avoid double slashes when joining with normalizedBase
+  const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+
+  // If the clean path already starts with the base name (excluding leading/trailing slashes),
+  // we need to be careful not to double-prefix.
+  // But usually, base is like "/ConferenceHomepage/" and cleanPath is "images/..."
   return `${normalizedBase}${cleanPath}`;
 };
 ---
@@ -42,7 +54,7 @@ const getUrl = (path: string) => {
       {
         hero.bgImage ? (
           <img
-            src={hero.bgImage}
+            src={getUrl(hero.bgImage)}
             alt="Conference Hero"
             class="w-full h-full object-cover"
           />
@@ -57,103 +69,168 @@ const getUrl = (path: string) => {
       >
       </div>
     </div>
-    <div
-      class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-    >
-      <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
-        {hero.title}
-      </h1>
-      <p class="text-xl md:text-2xl text-blue-100 mb-8 font-light">
-        {hero.subtitle}
-      </p>
-
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div
-        class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 mb-12 text-lg"
+        class="bg-black/50 backdrop-blur-sm p-8 md:p-12 rounded-xl max-w-2xl border border-white/10 shadow-2xl"
       >
-        <div class="flex items-center">
-          <svg
-            class="w-6 h-6 mr-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-            ></path></svg
-          >
-          {hero.date}
-        </div>
-        <div class="flex items-center">
-          <svg
-            class="w-6 h-6 mr-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            ></path><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
-          >
-          {hero.location}
-        </div>
-      </div>
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight leading-tight"
+        >
+          {hero.title}
+        </h1>
+        <p
+          class="text-lg md:text-xl text-blue-100 mb-8 font-light leading-relaxed"
+        >
+          {hero.subtitle}
+        </p>
 
-      <a
-        href={getUrl(`${year}/${lang}/${hero.ctaLink}`)}
-        class="inline-block bg-white text-[#003366] font-bold py-3 px-8 rounded-full hover:bg-blue-50 transition-colors shadow-lg transform hover:-translate-y-1"
-      >
-        {hero.cta}
-      </a>
+        <div class="flex flex-col space-y-4 mb-10 text-base md:text-lg">
+          <div class="flex items-center text-white/90">
+            <svg
+              class="w-5 h-5 mr-3 text-blue-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              ></path></svg
+            >
+            <span class="font-medium">{hero.date}</span>
+          </div>
+          <div class="flex items-center text-white/90">
+            <svg
+              class="w-5 h-5 mr-3 text-blue-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              ></path><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
+            >
+            <span class="font-medium">{hero.location}</span>
+          </div>
+        </div>
+
+        <a
+          href={getUrl(`${year}/${lang}/${hero.ctaLink}`)}
+          class="inline-flex items-center bg-blue-600 text-white font-bold py-3.5 px-8 rounded-lg hover:bg-blue-700 transition-all shadow-xl transform hover:-translate-y-1 active:translate-y-0"
+        >
+          {hero.cta}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 ml-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
+
+  <!-- Quick Links Section -->
+  <div class="bg-gray-50 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        {
+          [
+            {
+              key: "call-for-papers",
+              icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z",
+            },
+            {
+              key: "committee",
+              icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+            },
+            {
+              key: "submission",
+              icon: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12",
+            },
+            {
+              key: "venue-hotel",
+              icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+            },
+          ].map((link) => (
+            <a
+              href={getUrl(`${year}/${lang}/${link.key}`)}
+              class="flex flex-col items-center justify-center p-6 bg-[#1D3557] rounded-xl shadow-lg hover:bg-[#003366] transition-all transform hover:-translate-y-2 group text-center"
+            >
+              <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d={link.icon}
+                  />
+                </svg>
+              </div>
+              <span class="text-white font-bold uppercase tracking-wider text-sm">
+                {(menu && menu[link.key.replace(/-/g, "_")]) || link.key}
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
       <!-- Main Content Area -->
       <div class="lg:col-span-2 space-y-12">
+        <!-- Important Dates section in main column -->
+        <section>
+          <ImportantDates dates={importantDates} title="Important Dates" />
+        </section>
+
         <!-- Notice Section -->
         <section>
-          <NoticeBoard
-            notices={notice}
-            title={lang === "ko" ? "공지사항" : "News & Notice"}
-          />
+          <NoticeBoard notices={notice} title="News & Notice" />
         </section>
 
         <section id="about">
           <h2
             class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-blue-900 pb-2 inline-block"
           >
-            {lang === "ko" ? "컨퍼런스 소개" : "About Conference"}
+            About Conference
           </h2>
           <div
             class="prose prose-blue max-w-none text-lg text-gray-700 leading-relaxed"
           >
             <p>{meta.description}</p>
             <p class="mt-4">
-              {
-                lang === "ko"
-                  ? "본 컨퍼런스는 멀티미디어 정보 기술 및 응용 분야의 최신 연구 성과를 공유하고 국내외 전문가들의 네트워킹을 위한 장입니다."
-                  : "This conference is a premier forum for sharing latest research results in multimedia information technology and applications and networking with international experts."
-              }
+              This conference is a premier forum for sharing latest research
+              results in multimedia information technology and applications and
+              networking with international experts.
             </p>
             <div class="mt-6">
               <a
                 href={getUrl(`${year}/${lang}/call-for-papers`)}
                 class="text-blue-700 font-bold hover:underline flex items-center"
               >
-                {
-                  lang === "ko"
-                    ? "논문 모집 분야 확인하기"
-                    : "View Technical Scope & Call for Papers"
-                }
+                View Technical Scope & Call for Papers
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-5 w-5 ml-1"
@@ -172,22 +249,22 @@ const getUrl = (path: string) => {
           </div>
         </section>
 
-        <section id="poster">
-          <h2
-            class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-blue-900 pb-2 inline-block"
-          >
-            {lang === "ko" ? "컨퍼런스 포스터" : "Conference Poster"}
-          </h2>
-          <div
-            class="bg-gray-50 p-4 rounded-xl shadow-inner flex justify-center"
-          >
-            <img
-              src="https://lh3.googleusercontent.com/sitesv/AAzXCkdpW58rrxHIgQ1DPIXT8glNMjJ5jBYpGrkpG89YyP4DDn223X8zOdAKtJHzKdisoq3qCZsmwmPsr9Q1D2XmRVwCbxArMVxXUpMhuhHEtoRY_n0CPV4fIyo7Tpaqg8Xc9p5GsQAqq7MN2VDJ5iObeRyfJlNgw9QufNAlhyrWW7Ts62xqhDGu9NQzR3ZC5suSjHQzZYQDLHOrUWOfwpu5kPZQ18f2XU9LHEeHG_0=w1280"
-              alt="MITA 2025 Poster"
-              class="rounded-lg shadow-2xl max-w-full h-auto cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
-            />
-          </div>
-        </section>
+        {
+          posterImage && (
+            <section id="poster">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-blue-900 pb-2 inline-block">
+                Conference Poster
+              </h2>
+              <div class="bg-gray-50 p-4 rounded-xl shadow-inner flex justify-center">
+                <img
+                  src={getUrl(posterImage)}
+                  alt={`${year} Conference Poster`}
+                  class="rounded-lg shadow-2xl max-w-full h-auto cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
+                />
+              </div>
+            </section>
+          )
+        }
         <section id="committee">
           <h2
             class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-blue-900 pb-2 inline-block"
@@ -201,7 +278,7 @@ const getUrl = (path: string) => {
                   <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0 overflow-hidden">
                     {member.image ? (
                       <img
-                        src={member.image}
+                        src={getUrl(member.image)}
                         alt={member.name}
                         class="w-full h-full object-cover"
                       />
@@ -240,35 +317,7 @@ const getUrl = (path: string) => {
       <!-- Sidebar -->
       <div class="lg:col-span-1">
         <div class="sticky top-24 space-y-8">
-          <ImportantDates
-            dates={importantDates}
-            title={lang === "ko" ? "주요 일정" : "Important Dates"}
-          />
-
-          <!-- Partners & Publication -->
-          <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-            <h3 class="font-bold text-gray-900 mb-4">
-              {lang === "ko" ? "협력 기관 및 출판" : "Partners & Publication"}
-            </h3>
-            <div class="space-y-6">
-              <div
-                class="bg-white p-4 rounded shadow-sm border border-gray-100 flex items-center justify-center"
-              >
-                <img
-                  src="https://lh3.googleusercontent.com/sitesv/AAzXCkc6PJvj0_gUbp_11HE8qOgUUyYBJgYDk3sE99cHAuuHUhmNVHXNKcEA37OEDtjy8ZSlfQIft0jHTaFVMbaDjhpbkz6ppoj7O0w3a1gXtTQbYzGy4jL48rXT2A1atZX4ogrRBE8u4mbXdjKIUallNTdvy88gzHiALFQN2EiWA6MAqYe23aB8a1Maj1uord_yyi1Cd9BXRkG8B9NZj2LVc4I3WsX-qepfK24aTIg=w1280"
-                  alt="Springer CCIS"
-                  class="max-h-16 h-auto"
-                />
-              </div>
-              <div class="text-center text-xs text-gray-500 italic">
-                {
-                  lang === "ko"
-                    ? "채택된 논문은 Springer CCIS 시리즈로 출판됩니다."
-                    : "Accepted papers will be published in Springer CCIS series."
-                }
-              </div>
-            </div>
-          </div>
+          <Sponsors partners={partners} />
         </div>
       </div>
     </div>

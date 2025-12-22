@@ -19,6 +19,15 @@ const conferenceCollection = defineCollection({
             ctaLink: z.string(),
             bgImage: z.string().optional(),
         }),
+        posterImage: z.string().optional(),
+        partners: z.array(
+            z.object({
+                name: z.string(),
+                logo: z.string(),
+                description: z.string().optional(),
+                link: z.string().optional(),
+            })
+        ).optional(),
         importantDates: z.array(
             z.object({
                 label: z.string(),
@@ -42,6 +51,20 @@ const conferenceCollection = defineCollection({
                 image: z.string().optional(),
             })
         ),
+        keynotes: z
+            .array(
+                z.object({
+                    title: z.string(),
+                    time: z.string().optional(),
+                    date: z.string().optional(),
+                    speaker: z.string(),
+                    affiliation: z.string().optional(),
+                    abstract: z.string().optional(),
+                    biography: z.string().optional(),
+                    image: z.string().optional(),
+                })
+            )
+            .optional(),
         pages: z.record(
             z.object({
                 title: z.string(),

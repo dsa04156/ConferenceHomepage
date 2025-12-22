@@ -37,13 +37,15 @@ processedDates.forEach((item, index) => {
 ---
 
 <div
-  class="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200"
+  class="bg-white shadow-xl rounded-xl overflow-hidden border border-gray-100"
 >
-  <div class="bg-[#003366] px-6 py-4">
-    <h3 class="text-xl font-bold text-white flex items-center">
+  <div class="bg-[#1a3050] px-6 py-4">
+    <h3
+      class="text-lg font-bold text-white flex items-center uppercase tracking-wider"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6 mr-2"
+        class="h-5 w-5 mr-2 text-blue-400"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -58,35 +60,39 @@ processedDates.forEach((item, index) => {
       {title}
     </h3>
   </div>
-  <div class="p-6">
-    <ul class="space-y-4">
+  <div class="p-4 md:p-6">
+    <div class="space-y-3">
       {
         processedDates.map((item, index) => (
-          <li
-            class={`flex justify-between items-center p-3 rounded-md transition-all ${
+          <div
+            class={`flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 rounded-lg border transition-all ${
               item.isPast
-                ? "text-gray-400 line-through bg-gray-50"
+                ? "bg-gray-50 border-gray-100 opacity-60 grayscale"
                 : index === nearestIndex
-                  ? "bg-blue-50 ring-2 ring-blue-500 shadow-sm transform scale-[1.02]"
-                  : "text-gray-700 hover:bg-gray-50"
+                  ? "bg-blue-50 border-blue-200 shadow-sm border-l-4 border-l-blue-600"
+                  : "bg-white border-gray-100 hover:border-blue-100 hover:bg-blue-50/20"
             }`}
           >
             <div class="flex flex-col">
-              <span class="font-medium">{item.label}</span>
+              <span
+                class={`font-bold text-sm uppercase tracking-tight ${item.isPast ? "text-gray-400" : "text-[#1a3050]"}`}
+              >
+                {item.label}
+              </span>
               {item.note && (
-                <span class="text-[0.65rem] uppercase tracking-wide text-orange-500 font-bold">
+                <span class="text-[10px] font-extrabold text-orange-600 uppercase tracking-tighter mt-0.5">
                   {item.note}
                 </span>
               )}
             </div>
-            <span
-              class={`font-bold ${index === nearestIndex ? "text-blue-700" : ""}`}
+            <div
+              class={`mt-2 sm:mt-0 font-mono text-sm font-bold ${item.isPast ? "text-gray-400" : "text-blue-700"}`}
             >
               {item.date}
-            </span>
-          </li>
+            </div>
+          </div>
         ))
       }
-    </ul>
+    </div>
   </div>
 </div>

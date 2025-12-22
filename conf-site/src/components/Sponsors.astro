@@ -1,0 +1,67 @@
+---
+interface Partner {
+    name: string;
+    logo: string;
+    link?: string;
+    description?: string;
+}
+
+interface Props {
+    partners: Partner[];
+    title?: string;
+}
+
+const { partners, title = "Partners & Publication" } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const getAssetUrl = (path: string) => {
+    if (!path) return "";
+    if (path.startsWith("http")) return path;
+    const normalizedBase = base.endsWith("/") ? base : base + "/";
+    const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+    return `${normalizedBase}${cleanPath}`;
+};
+---
+
+{
+    partners && partners.length > 0 && (
+        <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-sm">
+            <h3 class="font-bold text-[#1a3050] mb-6 uppercase text-sm tracking-widest border-l-4 border-blue-600 pl-3">
+                {title}
+            </h3>
+            <div class="space-y-6">
+                {partners.map((partner) => (
+                    <div class="space-y-2">
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100 flex items-center justify-center group transition-all hover:shadow-md">
+                            {partner.link && partner.link !== "#" ? (
+                                <a
+                                    href={partner.link}
+                                    class="block"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img
+                                        src={getAssetUrl(partner.logo)}
+                                        alt={partner.name}
+                                        class="max-h-16 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                                    />
+                                </a>
+                            ) : (
+                                <img
+                                    src={getAssetUrl(partner.logo)}
+                                    alt={partner.name}
+                                    class="max-h-16 w-auto object-contain"
+                                />
+                            )}
+                        </div>
+                        {partner.description && (
+                            <div class="text-center text-[10px] text-gray-500 italic leading-tight px-2">
+                                {partner.description}
+                            </div>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
+}
