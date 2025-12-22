@@ -8,10 +8,14 @@ export async function getStaticPaths() {
   const paths = [];
 
   for (const conf of conferences) {
+    const year = String(conf.data.year);
+    const lang = String(conf.data.lang);
     const pages = conf.data.pages || {};
+    
     for (const [slug, pageData] of Object.entries(pages)) {
+      if (!slug) continue;
       paths.push({
-        params: { year: conf.data.year, lang: conf.data.lang, slug },
+        params: { year, lang, slug: String(slug) }, // Astro supports string with slashes for rest params too, but let's be safe
         props: { data: conf.data, pageData, slug },
       });
     }

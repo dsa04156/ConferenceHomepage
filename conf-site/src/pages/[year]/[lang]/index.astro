@@ -7,7 +7,7 @@ import NoticeBoard from '../../../components/NoticeBoard.astro';
 export async function getStaticPaths() {
   const conferences = await getCollection('conference');
   return conferences.map(conf => ({
-    params: { year: conf.data.year, lang: conf.data.lang },
+    params: { year: String(conf.data.year), lang: String(conf.data.lang) },
     props: { data: conf.data },
   }));
 }

@@ -11,34 +11,29 @@ interface Props {
 const { title, lang, year, menuLabels = {} } = Astro.props;
 
 // Helper to get the other language URL
+const base = import.meta.env.BASE_URL;
 const currentPath = Astro.url.pathname;
-const segments = currentPath.split('/').filter(Boolean);
+
+// Robust language switcher
 const otherLang = lang === 'ko' ? 'en' : 'ko';
 const otherLangLabel = lang === 'ko' ? 'English' : '한국어';
 
-// Find and replace lang segment
-const langIndex = segments.indexOf(lang);
-if (langIndex !== -1) {
-    segments[langIndex] = otherLang;
+// Replace current lang with other lang in the path
+// We need to be careful with the base path
+let otherLangUrl = currentPath;
+if (currentPath.includes(`/${lang}/`)) {
+    otherLangUrl = currentPath.replace(`/${lang}/`, `/${otherLang}/`);
+} else if (currentPath.endsWith(`/${lang}`)) {
+    otherLangUrl = currentPath.replace(`/${lang}`, `/${otherLang}`);
 }
-const otherLangUrl = '/' + segments.join('/');
-
-const base = import.meta.env.BASE_URL;
-// Ensure base ends with slash if it's not just "/"
-const normalizePath = (path: string) => {
-    return path.startsWith('/') ? path : '/' + path;
-};
 
 // Function to construct URL respecting base
-// base usually ends with / if set in config? 
-// Actually Astro BASE_URL is /ConferenceHomepage/
 const getUrl = (path: string) => {
     // path should be like "2025/ko/..."
-    // If base is "/", result is "/2025/ko/..."
-    // If base is "/Conf...", result is "/Conf.../2025/ko/..."
-    // remove leading slash from path if exists to avoid double slash with base
     const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-    return `${base}${cleanPath}`;
+    // Ensure base ends with /
+    const normalizedBase = base.endsWith('/') ? base : base + '/';
+    return `${normalizedBase}${cleanPath}`;
 };
 ---
 
