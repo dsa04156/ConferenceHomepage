@@ -127,7 +127,26 @@ const getUrl = (path: string) => {
                                     </a>
                                 )
 							))}
-                            
+                                                       <!-- Year Switcher -->
+                            <div class="relative group ml-2 xl:ml-4">
+                                <button class="inline-flex items-center px-2 xl:px-3 py-1 xl:py-1.5 border border-gray-200 rounded-md text-[12px] xl:text-sm font-medium text-gray-600 hover:text-[#003366] hover:border-[#003366] hover:bg-blue-50 transition-all">
+                                    {year}
+                                    <svg class="w-3 h-3 ml-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div class="absolute right-0 mt-1 w-24 rounded-lg shadow-xl bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                    <div class="py-1">
+                                        {['2026', '2025'].map((y) => (
+                                            <a
+                                                href={getUrl(`${y}/${lang}`)}
+                                                class={`block px-4 py-2 text-sm ${y === year ? 'bg-blue-50 text-[#003366] font-bold' : 'text-gray-700 hover:bg-gray-50'}`}
+                                            >
+                                                {y}
+                                            </a>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- Language Switcher -->
 							<a
 								href={otherLangUrl}
@@ -204,6 +223,17 @@ const getUrl = (path: string) => {
                         )
 					))}
 					<div class="pt-4 mt-4 border-t border-gray-100">
+                        <div class="flex items-center space-x-2 px-3 py-2 border-b border-gray-100 mb-2">
+                            <span class="text-sm font-medium text-gray-400 uppercase tracking-wider">Year:</span>
+                            {['2026', '2025'].map((y) => (
+                                <a
+                                    href={getUrl(`${y}/${lang}`)}
+                                    class={`px-3 py-1 rounded-md text-sm font-bold ${y === year ? 'bg-[#003366] text-white' : 'text-gray-600 bg-gray-100'}`}
+                                >
+                                    {y}
+                                </a>
+                            ))}
+                        </div>
                         <a
                             href={otherLangUrl}
                             class="flex items-center px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-[#003366] hover:bg-blue-50"

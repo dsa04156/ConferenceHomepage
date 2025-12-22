@@ -1,0 +1,151 @@
+{
+    "lang": "en",
+    "year": "2026",
+    "meta": {
+        "title": "MITA 2026",
+        "description": "International Conference on Multimedia Information Technology and Applications 2026"
+    },
+    "menu": {
+        "home": "Home",
+        "workshops": "Workshops",
+        "ccms_workshop": "CCMS Workshop",
+        "ccms_submission": "CCMS Submission",
+        "ccms_program": "CCMS Program",
+        "wsis2025": "WSIS 2026",
+        "wsis_submission": "WSIS Submission",
+        "wsis_program": "WSIS Program",
+        "notice": "Notice",
+        "call_for_papers": "Call for Papers",
+        "call_for_conference_paper": "Call for Conference Paper",
+        "call_for_journal_paper": "Call for Journal Paper",
+        "call_for_workshop": "Call for Workshop",
+        "committee": "Committee",
+        "important_dates": "Important Dates",
+        "keynote": "Keynote",
+        "program": "Program",
+        "submission": "Submission",
+        "registration": "Registration",
+        "registration_fee": "Registration Fee",
+        "venue_hotel": "Venue & Hotel"
+    },
+    "hero": {
+        "title": "MITA 2026",
+        "subtitle": "International Conference on Multimedia Information Technology and Applications",
+        "date": "July 2026 (TBA)",
+        "location": "To Be Announced",
+        "cta": "Submit Paper",
+        "ctaLink": "submission"
+    },
+    "importantDates": [
+        {
+            "label": "Paper Submission Deadline",
+            "date": "2026-04-01"
+        },
+        {
+            "label": "Acceptance Notification",
+            "date": "2026-05-15"
+        },
+        {
+            "label": "Camera-Ready Paper",
+            "date": "2026-06-01"
+        },
+        {
+            "label": "Early Registration",
+            "date": "2026-06-10"
+        }
+    ],
+    "notice": [
+        {
+            "date": "2025-12-22",
+            "title": "MITA 2026 Website is under construction.",
+            "isNew": true
+        }
+    ],
+    "pages": {
+        "workshops": {
+            "title": "Workshops",
+            "content": "<p>Information about workshops held in conjunction with MITA 2026.</p>"
+        },
+        "workshops/ccms-workshop": {
+            "title": "CCMS Workshop",
+            "content": "<p>Information about CCMS Workshop.</p>"
+        },
+        "workshops/ccms-workshop/ccms-submission": {
+            "title": "CCMS Submission",
+            "content": "<p>CCMS Workshop submission page.</p>"
+        },
+        "workshops/ccms-workshop/ccms-program-schedule": {
+            "title": "CCMS Program",
+            "content": "<p>CCMS Workshop program schedule.</p>"
+        },
+        "workshops/wsis2025": {
+            "title": "WSIS 2026",
+            "content": "<p>Information about WSIS 2026.</p>"
+        },
+        "workshops/wsis2025/wsis-submission": {
+            "title": "WSIS Submission",
+            "content": "<p>WSIS 2026 submission page.</p>"
+        },
+        "workshops/wsis2025/wsis-program-schedule": {
+            "title": "WSIS Program",
+            "content": "<p>WSIS 2026 program schedule.</p>"
+        },
+        "notice": {
+            "title": "Notice",
+            "content": "<p>Important notices regarding the conference.</p>"
+        },
+        "call-for-papers": {
+            "title": "Call for Papers",
+            "content": "<p>Call for Papers for MITA 2026.</p>"
+        },
+        "call-for-papers/call-for-conference-paper": {
+            "title": "Call for Conference Paper",
+            "content": "<p>Details for conference paper submission.</p>"
+        },
+        "call-for-papers/call-for-journal-paper": {
+            "title": "Call for Journal Paper",
+            "content": "<p>Details for journal paper submission.</p>"
+        },
+        "call-for-papers/call-for-workshop": {
+            "title": "Call for Workshop",
+            "content": "<p>Details for workshop proposals.</p>"
+        },
+        "committee": {
+            "title": "Committee",
+            "content": "<p>Committee members will be updated soon.</p>"
+        },
+        "important-dates": {
+            "title": "Important Dates",
+            "content": "<p>Check the important dates for the conference.</p>"
+        },
+        "keynote": {
+            "title": "Keynote Speakers",
+            "content": "<p>Keynote speakers will be announced soon.</p>"
+        },
+        "program": {
+            "title": "Program",
+            "content": "<p>Detailed program will be announced closer to the conference date.</p>"
+        },
+        "submission": {
+            "title": "Submission",
+            "content": "<p>Information about MITA 2026 paper submission.</p>"
+        },
+        "registration": {
+            "title": "Registration",
+            "content": "<p>Registration information will be announced soon.</p>"
+        },
+        "registration/registration-fee": {
+            "title": "Registration Fee",
+            "content": "<p>Details about registration fees.</p>"
+        },
+        "venue-hotel": {
+            "title": "Venue & Hotel",
+            "content": "<p>Venue and hotel information will be announced soon.</p>"
+        }
+    },
+    "committee": [],
+    "footer": {
+        "copyright": "© 2026 MITA. All Rights Reserved.",
+        "contact": "Tel: +82-51-712-9602 / E-mail: kmms1@kmms.or.kr"
+    }
+}
