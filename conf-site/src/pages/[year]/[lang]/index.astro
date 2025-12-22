@@ -1,44 +1,103 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../../layouts/Layout.astro';
-import ImportantDates from '../../../components/ImportantDates.astro';
-import NoticeBoard from '../../../components/NoticeBoard.astro';
+import { getCollection } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+import ImportantDates from "../../../components/ImportantDates.astro";
+import NoticeBoard from "../../../components/NoticeBoard.astro";
 
 export async function getStaticPaths() {
-  const conferences = await getCollection('conference');
-  return conferences.map(conf => ({
+  const conferences = await getCollection("conference");
+  return conferences.map((conf) => ({
     params: { year: String(conf.data.year), lang: String(conf.data.lang) },
     props: { data: conf.data },
   }));
 }
 
 const { data } = Astro.props;
-const { year, lang, meta, menu, hero, importantDates, notice, committee, footer } = data;
+const {
+  year,
+  lang,
+  meta,
+  menu,
+  hero,
+  importantDates,
+  notice = [],
+  committee,
+  footer,
+} = data;
+
+const base = import.meta.env.BASE_URL;
+const getUrl = (path: string) => {
+  const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+  const normalizedBase = base.endsWith("/") ? base : base + "/";
+  return `${normalizedBase}${cleanPath}`;
+};
 ---
 
 <Layout title={meta.title} lang={lang} year={year} menuLabels={menu}>
   <!-- Hero Section -->
-  <section class="relative bg-gray-900 text-white py-20 lg:py-32 overflow-hidden">
+  <section
+    class="relative bg-gray-900 text-white py-20 lg:py-32 overflow-hidden"
+  >
     <div class="absolute inset-0 z-0">
-        <!-- Placeholder for hero background image -->
-        <div class="absolute inset-0 bg-gradient-to-r from-[#003366] to-blue-900 opacity-90"></div>
+      <!-- Placeholder for hero background image -->
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-[#003366] to-blue-900 opacity-90"
+      >
+      </div>
     </div>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tight">{hero.title}</h1>
-      <p class="text-xl md:text-2xl text-blue-100 mb-8 font-light">{hero.subtitle}</p>
-      
-      <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 mb-12 text-lg">
+    <div
+      class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+    >
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+        {hero.title}
+      </h1>
+      <p class="text-xl md:text-2xl text-blue-100 mb-8 font-light">
+        {hero.subtitle}
+      </p>
+
+      <div
+        class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 mb-12 text-lg"
+      >
         <div class="flex items-center">
-            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-            {hero.date}
+          <svg
+            class="w-6 h-6 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            ></path></svg
+          >
+          {hero.date}
         </div>
         <div class="flex items-center">
-            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-            {hero.location}
+          <svg
+            class="w-6 h-6 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            ></path><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
+          >
+          {hero.location}
         </div>
       </div>
 
-      <a href={hero.ctaLink} class="inline-block bg-white text-[#003366] font-bold py-3 px-8 rounded-full hover:bg-blue-50 transition-colors shadow-lg transform hover:-translate-y-1">
+      <a
+        href={getUrl(`${year}/${lang}/${hero.ctaLink}`)}
+        class="inline-block bg-white text-[#003366] font-bold py-3 px-8 rounded-full hover:bg-blue-50 transition-colors shadow-lg transform hover:-translate-y-1"
+      >
         {hero.cta}
       </a>
     </div>
@@ -50,56 +109,101 @@ const { year, lang, meta, menu, hero, importantDates, notice, committee, footer 
       <div class="lg:col-span-2 space-y-12">
         <!-- Notice Section -->
         <section>
-            <NoticeBoard notices={notice} title={lang === 'ko' ? '공지사항' : 'News & Notice'} />
+          <NoticeBoard
+            notices={notice}
+            title={lang === "ko" ? "공지사항" : "News & Notice"}
+          />
         </section>
 
         <section id="about">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-blue-900 pb-2 inline-block">About Conference</h2>
-            <p class="text-lg text-gray-700 leading-relaxed">
-                {meta.description}
-                <br/><br/>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
+          <h2
+            class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-blue-900 pb-2 inline-block"
+          >
+            About Conference
+          </h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            {meta.description}
+            <br /><br />
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </p>
         </section>
 
         <section id="committee">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-blue-900 pb-2 inline-block">Committee Members</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {committee.map(member => (
-                    <div class="flex items-center space-x-4 bg-white p-4 rounded-lg shadow border border-gray-100">
-                        <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0 overflow-hidden">
-                            {member.image ? (
-                                <img src={member.image} alt={member.name} class="w-full h-full object-cover" />
-                            ) : (
-                                <div class="w-full h-full flex items-center justify-center text-gray-400">
-                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
-                                </div>
-                            )}
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg text-gray-900">{member.name}</h3>
-                            <p class="text-blue-700 font-medium text-sm">{member.role}</p>
-                            <p class="text-gray-500 text-sm">{member.affiliation}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
+          <h2
+            class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-blue-900 pb-2 inline-block"
+          >
+            Committee Members
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {
+              committee.map((member) => (
+                <div class="flex items-center space-x-4 bg-white p-4 rounded-lg shadow border border-gray-100">
+                  <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0 overflow-hidden">
+                    {member.image ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        class="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div class="w-full h-full flex items-center justify-center text-gray-400">
+                        <svg
+                          class="w-8 h-8"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-lg text-gray-900">
+                      {member.name}
+                    </h3>
+                    <p class="text-blue-700 font-medium text-sm">
+                      {member.role}
+                    </p>
+                    <p class="text-gray-500 text-sm">{member.affiliation}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
         </section>
       </div>
 
       <!-- Sidebar -->
       <div class="lg:col-span-1">
         <div class="sticky top-24 space-y-8">
-            <ImportantDates dates={importantDates} title={lang === 'ko' ? '주요 일정' : 'Important Dates'} />
-            
-            <!-- Additional Sidebar Widget (e.g. Sponsors) -->
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                <h3 class="font-bold text-gray-900 mb-4">Sponsors</h3>
-                <div class="space-y-4">
-                    <div class="h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-sm">Sponsor Logo</div>
-                    <div class="h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-sm">Sponsor Logo</div>
-                </div>
+          <ImportantDates
+            dates={importantDates}
+            title={lang === "ko" ? "주요 일정" : "Important Dates"}
+          />
+
+          <!-- Additional Sidebar Widget (e.g. Sponsors) -->
+          <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <h3 class="font-bold text-gray-900 mb-4">Sponsors</h3>
+            <div class="space-y-4">
+              <div
+                class="h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-sm"
+              >
+                Sponsor Logo
+              </div>
+              <div
+                class="h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-sm"
+              >
+                Sponsor Logo
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </div>
