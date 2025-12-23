@@ -1,20 +1,15 @@
 lang: en
-year: "2025"
+year: "2026"
 meta:
-  title: MITA 2025
-  description: >
-    The 21st International Conference on Multimedia Information Technology and Applications (MITA)
-    has been the leading multimedia and information system conference for the past two decades.
-    Through the KMMS societies, the conference serves as a forum to promote the latest advances in
-    multimedia technologies, systems, and applications from both research and development
-    perspectives.
+  title: MITA 2026
+  description: The 22th International Conference on Multimedia Information Technology and Applications
 menu:
   home: Home
   workshops: Workshops
   ccms_workshop: CCMS Workshop
   ccms_submission: CCMS Submission
   ccms_program: CCMS Program
-  wsis2025: WSIS 2025
+  wsis2026: WSIS 2026
   wsis_submission: WSIS Submission
   wsis_program: WSIS Program
   notice: Notice
@@ -31,9 +26,9 @@ menu:
   registration_fee: Registration Fee
   venue_hotel: "Venue & Hotel"
 hero:
-  title: MITA 2025
-  subtitle: International Conference on Multimedia Information Technology and Applications
-  date: "July 21 (Mon) - 24 (Thu), 2025"
+  title: MITA 2026
+  subtitle: The 22th International Conference on Multimedia Information Technology and Applications
+  date: "July 21 (Mon) - 24 (Thu), 2026"
   location: "Grand Hyatt Jeju, Republic of Korea"
   cta: Submit Paper
   ctaLink: submission
@@ -50,36 +45,36 @@ partners:
 importantDates:
   -
     label: Paper Submission (Regular / Short Papers)
-    date: "2025-06-25"
+    date: "2026-06-25"
     note: Extended
   -
     label: Author Notification (Regular / Short Papers)
-    date: "2025-06-30"
+    date: "2026-06-30"
     note: Extended
   -
     label: Full and Camera-ready Paper
-    date: "2025-07-04"
+    date: "2026-07-04"
     note: Extended
   -
     label: Pre-registration Deadline
-    date: "2025-07-13"
+    date: "2026-07-13"
     note: Extended
   -
-    label: MITA 2025 Conference
-    date: "2025-12-31"
+    label: MITA 2026 Conference
+    date: "2026-12-31"
 notice:
   -
-    date: "2025-12-22"
+    date: "2026-12-22"
     title: "Presentation Guidelines (Oral, Poster, Video) Announced"
     isNew: true
   -
     date: "2024-12-19"
-    title: MITA 2025 Website Open
+    title: MITA 2026 Website Open
     isNew: false
 pages:
   workshops:
     title: Workshops
-    content: Information about workshops held in conjunction with MITA 2025.
+    content: Information about workshops held in conjunction with MITA 2026.
   workshops/ccms-workshop:
     title: CCMS Workshop
     content: |
@@ -111,19 +106,19 @@ pages:
     content: |
       Papers submitted to the CCMS Workshop can be submitted through the conference submission system (CMT) by selecting the CCMS track.
       
-      [Go to Microsoft CMT](https://cmt3.research.microsoft.com/MITA2025)
+      [Go to Microsoft CMT](https://cmt3.research.microsoft.com/MITA2026)
   workshops/ccms-workshop/ccms-program-schedule:
     title: CCMS Program
     content: CCMS Workshop program schedule will be updated soon.
-  workshops/wsis2025:
-    title: WSIS 2025
-    content: Information about WSIS 2025.
-  workshops/wsis2025/wsis-submission:
+  workshops/wsis2026:
+    title: WSIS 2026
+    content: Information about WSIS 2026.
+  workshops/wsis2026/wsis-submission:
     title: WSIS Submission
-    content: WSIS 2025 submission page.
-  workshops/wsis2025/wsis-program-schedule:
+    content: WSIS 2026 submission page.
+  workshops/wsis2026/wsis-program-schedule:
     title: WSIS Program
-    content: WSIS 2025 program schedule.
+    content: WSIS 2026 program schedule.
   notice:
     title: Notice
     content: |
@@ -179,28 +174,28 @@ pages:
       
       At least one author of each accepted paper must present the paper at the conference.
       
-      [Submit your paper via Microsoft CMT](https://cmt3.research.microsoft.com/MITA2025)
+      [Submit your paper via Microsoft CMT](https://cmt3.research.microsoft.com/MITA2026)
   call-for-papers/call-for-journal-paper:
     title: Call for Journal Paper
     content: |
       ### Journal Track (JMIS)
       
-      We are pleased to announce a special Journal Track for MITA 2025, in collaboration with the Journal of Multimedia Information System (JMIS).
+      We are pleased to announce a special Journal Track for MITA 2026, in collaboration with the Journal of Multimedia Information System (JMIS).
       
       #### Dual Publication Track
       
-      Papers submitted to this track will undergo peer review for potential publication in JMIS. Authors of accepted papers will be invited to give oral presentations at MITA 2025, and only the abstracts will appear in the MITA proceedings. Full papers will be published in JMIS.
+      Papers submitted to this track will undergo peer review for potential publication in JMIS. Authors of accepted papers will be invited to give oral presentations at MITA 2026, and only the abstracts will appear in the MITA proceedings. Full papers will be published in JMIS.
       
-      [Go to JMIS Submission Site](https://www.manuscriptlink.com/journals/jmis) (Ensure to select 'MITA 2025 Journal Track' as submission type)
+      [Go to JMIS Submission Site](https://www.manuscriptlink.com/journals/jmis) (Ensure to select 'MITA 2026 Journal Track' as submission type)
   call-for-papers/call-for-workshop:
     title: Call for Workshop
     content: |
       ### Call for Workshop Proposals
       
-      We are soliciting proposals for workshops to be held together with MITA 2025.
+      We are soliciting proposals for workshops to be held together with MITA 2026.
       
-      - Proposal Deadline: April 11, 2025
-      - Notification: April 18, 2025
+      - Proposal Deadline: April 11, 2026
+      - Notification: April 18, 2026
       - Submission Email: [kmms1@kmms.or.kr](mailto:kmms1@kmms.or.kr)
   committee:
     title: Committee
@@ -217,9 +212,9 @@ pages:
   submission:
     title: Submission
     content: |
-      **Submission Link:** [Microsoft CMT MITA2025](https://cmt3.research.microsoft.com/MITA2025)
+      **Submission Link:** [Microsoft CMT MITA2026](https://cmt3.research.microsoft.com/MITA2026)
       
-      Papers of MITA 2025, based on the peer review process, will be published in the proceedings of Communications in Computer and Information Science (CCIS) series by Springer.
+      Papers of MITA 2026, based on the peer review process, will be published in the proceedings of Communications in Computer and Information Science (CCIS) series by Springer.
   registration:
     title: Registration
     content: |
@@ -227,7 +222,7 @@ pages:
       
       Please complete your registration by the deadline to secure your participation.
       
-      - **Early Registration Deadline:** July 13, 2025
+      - **Early Registration Deadline:** July 13, 2026
       - **On-site Registration:** Available at the venue (limited capacity)
       - **Payment Method:** Credit card or bank transfer
       
@@ -280,105 +275,121 @@ committee:
     role: General Chair
     name: Byung Gyu Kim
     affiliation: "Sookmyung Women's University, South Korea"
-    image: images/이재용.jpg
+    image: images/COMMITTEE/김병규교수.png
   -
-    role: Vice General Chair
-    name: Young-Sik Jeong
-    affiliation: "Dongguk University, South Korea"
-    image: images/이재용.jpg
-  -
-    role: Vice General Chair
-    name: Constantine Kotropoulos
-    affiliation: "Aristotle University of Thessaloniki, Greece"
-    image: images/이재용.jpg
-  -
-    role: Organizing Committee Co-Chair
+    role: Organizing Committee Co-Chairs
     name: Namje Park
     affiliation: "Jeju National University, South Korea"
-    image: images/이재용.jpg
+    image: images/COMMITTEE/박남제교수.jpg
   -
-    role: Organizing Committee Co-Chair
+    role: Organizing Committee Co-Chairs
     name: Hiroo Sekiya
     affiliation: "Chiba University, Japan"
-    image: images/이재용.jpg
+    image: images/COMMITTEE/Hiroo Sekiya.png
   -
-    role: Local Arrangement Chair
-    name: Jin-Woo Jung
-    affiliation: "Jeju National University, South Korea"
-    image: images/이재용.jpg
-  -
-    role: Program Committee Co-Chair
+    role: Program Committee Co-Chair, CCMS Technical Program Committee Co-Chairs
     name: Deokwoo Lee
     affiliation: "Keimyung University, South Korea"
-    image: images/이재용.jpg
+    image: images/COMMITTEE/이덕우교수.jpg
   -
     role: Program Committee Co-Chair
     name: Hidehiro Nakano
     affiliation: "Tokyo City University, Japan"
-    image: images/이재용.jpg
+    image: images/COMMITTEE/Hidehiro Nakano.jpg
   -
     role: Program Committee Co-Chair
     name: Wen-Huang Cheng
     affiliation: "National Taiwan University, Taiwan"
-    image: images/이재용.jpg
+    image: images/COMMITTEE/Wen-Huang Cheng.jpg
   -
-    role: Publicity Chair
-    name: Satoshi Takahashi
-    affiliation: "University of Electro-Communications, Japan"
-    image: images/이재용.jpg
-  -
-    role: Publicity Chair
-    name: Jongmyon Kim
-    affiliation: "University of Ulsan, South Korea"
-    image: images/이재용.jpg
-  -
-    role: Publicity Chair
-    name: Dušan Gleich
-    affiliation: "University of Maribor, Slovenia"
-    image: images/이재용.jpg
-  -
-    role: Special Session Chair (CCMS)
+    role: CCMS Organizing Committee Co-Chairs
     name: Young-Woo Kwon
     affiliation: "Kyungpook National University, South Korea"
-    image: images/이재용.jpg
+    image: images/COMMITTEE/권영우교수.jpg
   -
-    role: Special Session Chair (CCMS)
+    role: CCMS Organizing Committee Co-Chairs
     name: Atsushi Uchida
     affiliation: "Saitama University, Japan"
-    image: images/이재용.jpg
+    image: images/COMMITTEE/Atsushi.jpg
   -
-    role: Publication Chair
-    name: Hyunwoo Kim
-    affiliation: "Kookmin University, South Korea"
-    image: images/이재용.jpg
+    role: CCMS Technical Program Committee Co-Chairs
+    name: Noriaki Kamiyama
+    affiliation: "Ritsumeikan University, Japan"
+    image: images/COMMITTEE/Noriaki Kamiyama.jpg
   -
-    role: Publication Chair
-    name: Rabie A. Ramadan
-    affiliation: "Cairo University, Egypt"
-    image: images/이재용.jpg
+    role: CCMS Technical Program Committee Co-Chairs
+    name: Kazutaka Kanno
+    affiliation: "Saitama University, Japan"
+    image: images/COMMITTEE/Kazutaka.jpg
   -
-    role: Registration Chair
-    name: Jongil Jeong
-    affiliation: "Yeungnam University, South Korea"
-    image: images/이재용.jpg
+    role: CCMS Technical Program Committee Co-Chairs
+    name: Ryo Nakamura
+    affiliation: "Fukuoka University, Japan"
+    image: images/COMMITTEE/Ryo.jpg
   -
-    role: Finance Chair
-    name: Sangil Na
-    affiliation: "Kookmin University, South Korea"
-    image: images/이재용.jpg
+    role: Plenary Chair
+    name: Young-Ho Park
+    affiliation: "Sookmyung Women’s University, South Korea"
+    image: images/COMMITTEE/박영호교수.jpg
   -
-    role: Web Chair
-    name: Jiseung Nam
-    affiliation: "Kookmin University, South Korea"
-    image: images/이재용.jpg
+    role: Special Session Co-Chairs
+    name: Sanghyun Seo
+    affiliation: "Chung-Ang University, South Korea"
+    image: images/COMMITTEE/서상현교수.jpg
+  -
+    role: Special Session Co-Chairs
+    name: Partha Pratim Roy
+    affiliation: "IIT Roorkey, India"
+    image: images/COMMITTEE/PPRoy.jpg
+  -
+    role: Tutorial Co-Chairs
+    name: Sangoh Park
+    affiliation: "Chung-Ang University, South Korea"
+    image: images/COMMITTEE/박상오교수.jpg
+  -
+    role: Tutorial Co-Chairs
+    name: Lu Leng
+    affiliation: "Nanchang Hangkong University, China"
+    image: images/COMMITTEE/Lu_Leng.png
+  -
+    role: Women ICT Session Chair
+    name: Hyeyoung Ko
+    affiliation: "Seoul Women’s University, South Korea"
+    image: images/COMMITTEE/고혜영교수.jpg
+  -
+    role: Educational Activities Chair
+    name: Taewan Kim
+    affiliation: "Dongduk Women’s University, South Korea"
+    image: images/COMMITTEE/김태완교수.jpg
+  -
+    role: Publication Co-Chairs
+    name: Suk-Hwan Lee
+    affiliation: "Dong-A University, South Korea"
+    image: images/COMMITTEE/이석환교수.jpg
+  -
+    role: Publication Co-Chairs
+    name: Jiwoo Kang
+    affiliation: "Sookmyung Women’s University, South Korea"
+    image: images/COMMITTEE/강지우교수.jpg
+  -
+    role: Local Arrangement Chair
+    name: Seok Chan Jeong
+    affiliation: "Dong-Eui University, South Korea"
+    image: images/COMMITTEE/정석찬교수.jpg
+  -
+    role: Publicity Chair
+    name: Se-Hoon Jung
+    affiliation: "Sunchon National University, South Korea"
+    image: images/COMMITTEE/정세훈교수.jpg
+
 footer:
-  copyright: (c) 2025 MITA. All Rights Reserved.
+  copyright: (c) 2026 MITA. All Rights Reserved.
   contact: "Tel: +82-51-712-9602 / E-mail: kmms1@kmms.or.kr"
 keynotes:
   -
     title: Communications and Networking in Mega-Constellations
     time: "11:20 ~ 11:50"
-    date: "February 20, 2025 (Wednesday)"
+    date: "February 20, 2026 (Wednesday)"
     speaker: Prof. Gunes Karabulut Kurt
     affiliation: "Polytechnique Montreal, Canada"
     abstract: "The wide footprint of satellites holds the promise of providing ubiquitous connectivity. However, challenges persist in overcoming bottlenecks to ensure sufficiently high data rates for under-connected communities while maintaining uninterrupted communication. This talk identifies these challenges regarding communications and networking perspectives, summarizes recent research efforts addressing them, and highlights key open issues for future investigation."
@@ -386,7 +397,7 @@ keynotes:
   -
     title: Trustworthy AI for Multimedia Systems
     time: "13:30 ~ 14:00"
-    date: "February 20, 2025 (Wednesday)"
+    date: "February 20, 2026 (Wednesday)"
     speaker: Prof. Minji Park
     affiliation: "KAIST, South Korea"
     abstract: "This talk explores practical approaches to building trustworthy AI pipelines for multimedia applications, focusing on transparency, robustness, and evaluation across real-world datasets."
@@ -395,7 +406,7 @@ keynotes:
   -
     title: Edge-to-Cloud Media Processing
     time: "14:10 ~ 14:40"
-    date: "February 20, 2025 (Wednesday)"
+    date: "February 20, 2026 (Wednesday)"
     speaker: Dr. Alex Chen
     affiliation: "National Taiwan University, Taiwan"
     abstract: We present a scalable edge-to-cloud architecture for low-latency media analytics and discuss deployment strategies for heterogeneous networks.
@@ -404,7 +415,7 @@ keynotes:
   -
     title: Human-Computer Interaction in Immersive Media
     time: "15:00 ~ 15:30"
-    date: "February 20, 2025 (Wednesday)"
+    date: "February 20, 2026 (Wednesday)"
     speaker: Prof. Sofia Martinez
     affiliation: "University of Queensland, Australia"
     abstract: This keynote reviews interaction design patterns for immersive media experiences and highlights emerging opportunities for inclusive design.
@@ -412,7 +423,7 @@ keynotes:
     image: images/profile_placeholder_1_1766384557698.png
 programSchedule:
   -
-    dateLabel: "Day 1 ? February 20, 2025 (Wednesday)"
+    dateLabel: "Day 1 ? February 20, 2026 (Wednesday)"
     sessions:
       -
         time: "08:30 ~ 09:30"
@@ -450,7 +461,7 @@ programSchedule:
         title: Poster Session
         location: Exhibition Area
   -
-    dateLabel: "Day 2 ? February 21, 2025 (Thursday)"
+    dateLabel: "Day 2 ? February 21, 2026 (Thursday)"
     sessions:
       -
         time: "09:00 ~ 09:40"
@@ -487,7 +498,7 @@ programSchedule:
 workshopSchedules:
   "workshops/ccms-workshop/ccms-program-schedule":
     -
-      dateLabel: "CCMS Day ? February 19, 2025 (Tuesday)"
+      dateLabel: "CCMS Day ? February 19, 2026 (Tuesday)"
       sessions:
         -
           time: "09:00 ~ 09:30"
@@ -505,7 +516,7 @@ workshopSchedules:
           note: "Communication Systems"
           location: "Room B"
     -
-      dateLabel: "CCMS Day ? February 20, 2025 (Wednesday)"
+      dateLabel: "CCMS Day ? February 20, 2026 (Wednesday)"
       sessions:
         -
           time: "09:00 ~ 10:20"
@@ -517,9 +528,9 @@ workshopSchedules:
           title: "Panel Discussion"
           note: "Future of CCMS"
           location: "Room B"
-  "workshops/wsis2025/wsis-program-schedule":
+  "workshops/wsis2026/wsis-program-schedule":
     -
-      dateLabel: "WSIS Day ? February 19, 2025 (Tuesday)"
+      dateLabel: "WSIS Day ? February 19, 2026 (Tuesday)"
       sessions:
         -
           time: "13:30 ~ 14:20"
@@ -532,7 +543,7 @@ workshopSchedules:
           note: "Smart Intelligence"
           location: "Room C"
     -
-      dateLabel: "WSIS Day ? February 20, 2025 (Wednesday)"
+      dateLabel: "WSIS Day ? February 20, 2026 (Wednesday)"
       sessions:
         -
           time: "09:30 ~ 10:30"

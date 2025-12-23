@@ -29,6 +29,20 @@ const {
   footer,
 } = data;
 
+const featuredCommittee = committee.filter((member) => {
+  const roles = new Set([
+    "General Chair",
+    "Organizing Committee Co-Chairs",
+    "Program Committee Co-Chair",
+    "CCMS Organizing Committee Co-Chairs",
+  ]);
+  const memberRoles = member.role
+    .split(",")
+    .map((role) => role.trim())
+    .filter(Boolean);
+  return memberRoles.some((role) => roles.has(role));
+});
+
 const base = import.meta.env.BASE_URL;
 const getUrl = (path: string) => {
   if (!path) return "";
@@ -199,12 +213,7 @@ const getUrl = (path: string) => {
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
       <!-- Main Content Area -->
-      <div class="lg:col-span-2 space-y-12">
-        <!-- Important Dates section in main column -->
-        <section>
-          <ImportantDates dates={importantDates} title="Important Dates" />
-        </section>
-
+      <div class="lg:col-span-2 space-y-12 order-2 lg:order-1">
         <!-- Notice Section -->
         <section>
           <NoticeBoard notices={notice} title="News & Notice" />
@@ -221,9 +230,18 @@ const getUrl = (path: string) => {
           >
             <p>{meta.description}</p>
             <p class="mt-4">
-              This conference is a premier forum for sharing latest research
-              results in multimedia information technology and applications and
-              networking with international experts.
+              MITA attracts well over 150 submissions and 200 participants each
+              year, serving as the prime forum for the dissemination of
+              knowledge in the multimedia and information field. MITA 2025 will
+              showcase high-quality oral and poster presentations sponsored by
+              the Korea Multimedia Society (KMMS). Researchers, developers, and
+              practitioners are welcomed to submit any new or emerging results
+              of multimedia technology and intelligent IoT systems. In MITA
+              2025, exceptional papers and contributors will be recognized with
+              prestigious awards. Original research papers on all aspects of
+              the theories and applications of multimedia information
+              technology are solicited for submission to MITA 2025, which is
+              organized and sponsored by the Korea Multimedia Society (KMMS).
             </p>
             <div class="mt-6">
               <a
@@ -273,7 +291,7 @@ const getUrl = (path: string) => {
           </h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {
-              committee.map((member) => (
+              featuredCommittee.map((member) => (
                 <div class="flex items-center space-x-4 bg-white p-4 rounded-lg shadow border border-gray-100">
                   <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0 overflow-hidden">
                     {member.image ? (
@@ -311,12 +329,34 @@ const getUrl = (path: string) => {
               ))
             }
           </div>
+          <div class="mt-6">
+            <a
+              href={getUrl(`${year}/${lang}/committee`)}
+              class="text-blue-700 font-bold hover:underline flex items-center"
+            >
+              View Full Committee
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 ml-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
         </section>
       </div>
 
       <!-- Sidebar -->
-      <div class="lg:col-span-1">
-        <div class="sticky top-24 space-y-8">
+      <div class="lg:col-span-1 self-start order-1 lg:order-2">
+        <div class="sticky top-24 space-y-8 h-fit">
+          <ImportantDates dates={importantDates} title="Important Dates" />
           <Sponsors partners={partners} />
         </div>
       </div>

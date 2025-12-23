@@ -46,15 +46,37 @@ const {
   footer,
 } = data;
 
+const wsisKey = year === "2026" ? "wsis2026" : "wsis2025";
+const mapMenuItems = (items: typeof MENU_ITEMS) =>
+  items.map((item) => {
+    const updated = { ...item };
+    if (updated.key === "wsis2025") {
+      updated.key = wsisKey;
+    }
+    if (updated.href.includes("workshops/wsis2025")) {
+      updated.href = updated.href.replace(
+        "workshops/wsis2025",
+        `workshops/${wsisKey}`,
+      );
+    }
+    if (updated.children) {
+      updated.children = mapMenuItems(updated.children);
+    }
+    return updated;
+  });
+
+const menuItems = mapMenuItems(MENU_ITEMS);
+
 // Check if this is the committee page
 const isCommitteePage = slug === "committee";
 const isKeynotePage = slug === "keynote";
 const isProgramPage = slug === "program";
+const isCallForPapersPage = slug.startsWith("call-for-papers");
 const workshopScheduleForPage =
   workshopSchedules && slug ? workshopSchedules[slug] : [];
 
 // Find the current main menu section for the sidebar
-const currentSection = MENU_ITEMS.find(
+const currentSection = menuItems.find(
   (item) =>
     item.href === slug ||
     (item.children &&
@@ -126,9 +148,9 @@ const contentHtml = await marked.parse(pageData.content || "", { renderer });
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
-      <!-- Sidebar Navigation -->
-      <aside class="lg:col-span-1">
-        <div class="sticky top-24 space-y-8">
+      <!-- Sidebar Navigation (Desktop only) -->
+      <aside class="hidden lg:block lg:col-span-1">
+        <div class="sticky top-24 flex flex-col gap-8 min-h-[60vh]">
           <div
             class="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden shadow-sm"
           >
@@ -167,8 +189,13 @@ const contentHtml = await marked.parse(pageData.content || "", { renderer });
             </nav>
           </div>
 
-          <ImportantDates dates={importantDates} title="Important Dates" />
-          <Sponsors partners={partners} />
+          {!isCallForPapersPage && (
+            <ImportantDates dates={importantDates} title="Important Dates" />
+          )}
+
+          <div class="mt-auto">
+            <Sponsors partners={partners} />
+          </div>
         </div>
       </aside>
 

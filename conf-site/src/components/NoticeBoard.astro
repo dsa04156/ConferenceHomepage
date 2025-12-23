@@ -66,15 +66,17 @@ const { notices = [], title = "News & Notice" } = Astro.props;
             notices.map((item, index) => (
               <tr class="hover:bg-blue-50/30 transition-colors group">
                 <td class="px-6 py-4 text-sm text-gray-400 text-center font-mono">
-                  {String(notices.length - index).padStart(2, "0")}
-                </td>
-                <td class="px-6 py-4">
-                  <div class="flex items-center">
+                  <div class="flex items-center justify-center gap-2">
+                    <span>{String(notices.length - index).padStart(2, "0")}</span>
                     {item.isNew && (
-                      <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-red-500 text-white mr-2 animate-pulse">
+                      <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-red-500 text-white animate-pulse">
                         NEW
                       </span>
                     )}
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <div class="flex items-center">
                     {item.link ? (
                       <a
                         href={item.link}
