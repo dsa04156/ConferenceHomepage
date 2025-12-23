@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import { getCollection } from 'astro:content';
-import { MENU_ITEMS } from '../config/menu';
+import type { MenuItem } from '../config/menu';
 
 interface Props {
 	title: string;
@@ -42,23 +42,51 @@ const getUrl = (path: string) => {
     return `${normalizedBase}${cleanPath}`;
 };
 
-const wsisKey = year === '2026' ? 'wsis2026' : 'wsis2025';
-const mapMenuItems = (items: typeof MENU_ITEMS) =>
-    items.map((item) => {
-        const updated = { ...item };
-        if (updated.key === 'wsis2025') {
-            updated.key = wsisKey;
-        }
-        if (updated.href.includes('workshops/wsis2025')) {
-            updated.href = updated.href.replace('workshops/wsis2025', `workshops/${wsisKey}`);
-        }
-        if (updated.children) {
-            updated.children = mapMenuItems(updated.children);
-        }
-        return updated;
+const toKey = (segment: string) => segment.replace(/-/g, '_');
+const findOrCreate = (
+    items: MenuItem[],
+    href: string,
+    key: string,
+    label: string,
+) => {
+    let found = items.find((item) => item.href === href);
+    if (!found) {
+        found = { key, href, label };
+        items.push(found);
+    } else if (!found.label) {
+        found.label = label;
+    }
+    return found;
+};
+
+const buildMenuItems = (pages: Record<string, { title: string }>) => {
+    const items: MenuItem[] = [
+        { key: 'home', href: '', label: menuLabels.home || 'Home' },
+    ];
+    if (!pages) return items;
+
+    Object.keys(pages).forEach((path) => {
+        if (!path) return;
+        const segments = path.split('/');
+        let current = items;
+        segments.forEach((segment, index) => {
+            const href = segments.slice(0, index + 1).join('/');
+            const key = toKey(segment);
+            const label = menuLabels[key] || pages[href]?.title || key;
+            const node = findOrCreate(current, href, key, label);
+            if (index === segments.length - 1) return;
+            if (!node.children) node.children = [];
+            current = node.children;
+        });
     });
 
-const menuItems = mapMenuItems(MENU_ITEMS);
+    return items;
+};
+
+const currentConference = allConferenceItems.find(
+    (item) => item.data.year === year && item.data.lang === lang,
+);
+const menuItems = buildMenuItems(currentConference?.data.pages || {});
 
 ---
 
@@ -107,7 +135,7 @@ const menuItems = mapMenuItems(MENU_ITEMS);
                                                             href={getUrl(`${year}/${lang}/${item.href}`)}
                                                             class="px-1.5 2xl:px-2 py-2 rounded-md text-[15px] 2xl:text-base font-bold text-gray-700 hover:text-[#003366] hover:bg-blue-50 inline-flex items-center transition-all duration-200 group-hover:text-[#003366] uppercase tracking-tighter"
                                                         >
-                                                            {(menuLabels && menuLabels[item.key]) || item.key}
+                                                            {item.label || (menuLabels && menuLabels[item.key]) || item.key}
                                                             <svg class="w-3 h-3 ml-0.5 text-gray-400 group-hover:text-[#003366] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                                         </a>
                                                         <!-- Dropdown -->
@@ -117,7 +145,7 @@ const menuItems = mapMenuItems(MENU_ITEMS);
                                                                     child.children ? (
                                                                         <div class="relative group/sub px-1 2xl:px-2">
                                                                             <button class="w-full text-left block px-3 2xl:px-4 py-2 2xl:py-2.5 rounded-md text-[12px] 2xl:text-sm text-gray-700 hover:bg-blue-50 hover:text-[#003366] flex justify-between items-center font-medium transition-colors uppercase">
-                                                                                {(menuLabels && menuLabels[child.key]) || child.key}
+                                                                                {child.label || (menuLabels && menuLabels[child.key]) || child.key}
                                                                                 <svg class="w-3 h-3 2xl:w-4 2xl:h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                                                                             </button>
                                                                             <!-- Sub Dropdown -->
@@ -128,7 +156,7 @@ const menuItems = mapMenuItems(MENU_ITEMS);
                                                                                             href={getUrl(`${year}/${lang}/${subChild.href}`)}
                                                                                             class="block px-3 2xl:px-4 py-2 2xl:py-2.5 rounded-md text-[12px] 2xl:text-sm text-gray-700 hover:bg-blue-50 hover:text-[#003366] transition-colors uppercase"
                                                                                         >
-                                                                                            {(menuLabels && menuLabels[subChild.key]) || subChild.key}
+                                                                                            {subChild.label || (menuLabels && menuLabels[subChild.key]) || subChild.key}
                                                                                         </a>
                                                                                     ))}
                                                                                 </div>
@@ -140,7 +168,7 @@ const menuItems = mapMenuItems(MENU_ITEMS);
                                                                                 href={getUrl(`${year}/${lang}/${child.href}`)}
                                                                                 class="block px-3 2xl:px-4 py-2 2xl:py-2.5 rounded-md text-[12px] 2xl:text-sm text-gray-700 hover:bg-blue-50 hover:text-[#003366] font-medium transition-colors uppercase"
                                                                             >
-                                                                                {(menuLabels && menuLabels[child.key]) || child.key}
+                                                                                {child.label || (menuLabels && menuLabels[child.key]) || child.key}
                                                                             </a>
                                                                         </div>
                                                                     )
@@ -153,7 +181,7 @@ const menuItems = mapMenuItems(MENU_ITEMS);
                                                         href={getUrl(`${year}/${lang}${item.href ? '/' + item.href : ''}`)}
                                                         class="px-1.5 2xl:px-2 py-2 rounded-md text-[15px] 2xl:text-base font-bold text-gray-700 hover:text-[#003366] hover:bg-blue-50 transition-all duration-200 uppercase tracking-tighter"
                                                     >
-                                                        {(menuLabels && menuLabels[item.key]) || item.key}
+                                                        {item.label || (menuLabels && menuLabels[item.key]) || item.key}
                                                     </a>
                                                 )
                                             }
@@ -182,13 +210,13 @@ const menuItems = mapMenuItems(MENU_ITEMS);
                                     </button>
                                     <div class="absolute right-0 mt-1 w-56 2xl:w-60 rounded-lg shadow-xl bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                                         <div id="desktop-menu-overflow-list" class="py-1 2xl:py-2 px-1 2xl:px-2">
-                                            {MENU_ITEMS.map((item) => (
+                                            {menuItems.map((item) => (
                                                 <div class="menu-overflow-item hidden" data-menu-key={item.key}>
                                                     {
                                                         item.children ? (
                                                             <div class="relative group/sub px-1 2xl:px-2">
                                                                 <button class="w-full text-left block px-3 2xl:px-4 py-2 2xl:py-2.5 rounded-md text-[12px] 2xl:text-sm text-gray-700 hover:bg-blue-50 hover:text-[#003366] flex justify-between items-center font-medium transition-colors uppercase">
-                                                                    {(menuLabels && menuLabels[item.key]) || item.key}
+                                                                    {item.label || (menuLabels && menuLabels[item.key]) || item.key}
                                                                     <svg class="w-3 h-3 2xl:w-4 2xl:h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                                                                 </button>
                                                                 <div class="absolute left-full top-0 mt-0 w-56 2xl:w-60 rounded-lg shadow-xl bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200 z-50 ml-1">
@@ -197,7 +225,7 @@ const menuItems = mapMenuItems(MENU_ITEMS);
                                                                             child.children ? (
                                                                                 <div class="relative group/sub px-1 2xl:px-2">
                                                                                     <button class="w-full text-left block px-3 2xl:px-4 py-2 2xl:py-2.5 rounded-md text-[12px] 2xl:text-sm text-gray-700 hover:bg-blue-50 hover:text-[#003366] flex justify-between items-center font-medium transition-colors uppercase">
-                                                                                        {(menuLabels && menuLabels[child.key]) || child.key}
+                                                                                        {child.label || (menuLabels && menuLabels[child.key]) || child.key}
                                                                                         <svg class="w-3 h-3 2xl:w-4 2xl:h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                                                                                     </button>
                                                                                     <div class="absolute left-full top-0 mt-0 w-56 2xl:w-60 rounded-lg shadow-xl bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200 z-50 ml-1">
@@ -207,7 +235,7 @@ const menuItems = mapMenuItems(MENU_ITEMS);
                                                                                                     href={getUrl(`${year}/${lang}/${subChild.href}`)}
                                                                                                     class="block px-3 2xl:px-4 py-2 2xl:py-2.5 rounded-md text-[12px] 2xl:text-sm text-gray-700 hover:bg-blue-50 hover:text-[#003366] transition-colors uppercase"
                                                                                                 >
-                                                                                                    {(menuLabels && menuLabels[subChild.key]) || subChild.key}
+                                                                                                    {subChild.label || (menuLabels && menuLabels[subChild.key]) || subChild.key}
                                                                                                 </a>
                                                                                             ))}
                                                                                         </div>
@@ -219,7 +247,7 @@ const menuItems = mapMenuItems(MENU_ITEMS);
                                                                                         href={getUrl(`${year}/${lang}/${child.href}`)}
                                                                                         class="block px-3 2xl:px-4 py-2 2xl:py-2.5 rounded-md text-[12px] 2xl:text-sm text-gray-700 hover:bg-blue-50 hover:text-[#003366] font-medium transition-colors uppercase"
                                                                                     >
-                                                                                        {(menuLabels && menuLabels[child.key]) || child.key}
+                                                                                        {child.label || (menuLabels && menuLabels[child.key]) || child.key}
                                                                                     </a>
                                                                                 </div>
                                                                             )
@@ -232,7 +260,7 @@ const menuItems = mapMenuItems(MENU_ITEMS);
                                                                 href={getUrl(`${year}/${lang}${item.href ? '/' + item.href : ''}`)}
                                                                 class="block px-3 2xl:px-4 py-2 2xl:py-2.5 rounded-md text-[12px] 2xl:text-sm text-gray-700 hover:bg-blue-50 hover:text-[#003366] font-medium transition-colors uppercase"
                                                             >
-                                                                {(menuLabels && menuLabels[item.key]) || item.key}
+                                                                {item.label || (menuLabels && menuLabels[item.key]) || item.key}
                                                             </a>
                                                         )
                                                     }
@@ -291,14 +319,14 @@ const menuItems = mapMenuItems(MENU_ITEMS);
                                     href={getUrl(`${year}/${lang}/${item.href}`)}
                                     class="block font-bold text-[#003366] px-3 py-2 text-base hover:bg-blue-50 rounded-md"
                                 >
-                                    {(menuLabels && menuLabels[item.key]) || item.key}
+                                    {item.label || (menuLabels && menuLabels[item.key]) || item.key}
                                 </a>
                                 <div class="pl-4 space-y-1 border-l-2 border-gray-100 ml-3">
                                     {item.children.map(child => (
                                         child.children ? (
                                             <div class="space-y-1">
                                                 <div class="font-medium text-gray-800 px-3 py-2 text-sm">
-                                                    {(menuLabels && menuLabels[child.key]) || child.key}
+                                                    {child.label || (menuLabels && menuLabels[child.key]) || child.key}
                                                 </div>
                                                 <div class="pl-4 space-y-1 border-l-2 border-gray-100 ml-3">
                                                     {child.children.map(subChild => (
@@ -306,7 +334,7 @@ const menuItems = mapMenuItems(MENU_ITEMS);
                                                             href={getUrl(`${year}/${lang}/${subChild.href}`)}
                                                             class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-[#003366] hover:bg-blue-50"
                                                         >
-                                                            - {(menuLabels && menuLabels[subChild.key]) || subChild.key}
+                                                            - {subChild.label || (menuLabels && menuLabels[subChild.key]) || subChild.key}
                                                         </a>
                                                     ))}
                                                 </div>
@@ -316,7 +344,7 @@ const menuItems = mapMenuItems(MENU_ITEMS);
                                                 href={getUrl(`${year}/${lang}/${child.href}`)}
                                                 class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-[#003366] hover:bg-blue-50"
                                             >
-                                                {(menuLabels && menuLabels[child.key]) || child.key}
+                                                {child.label || (menuLabels && menuLabels[child.key]) || child.key}
                                             </a>
                                         )
                                     ))}
@@ -327,7 +355,7 @@ const menuItems = mapMenuItems(MENU_ITEMS);
                                 href={getUrl(`${year}/${lang}${item.href ? '/' + item.href : ''}`)}
                                 class="block px-3 py-2 rounded-md text-base font-bold text-gray-700 hover:text-[#003366] hover:bg-blue-50"
                             >
-                                {(menuLabels && menuLabels[item.key]) || item.key}
+                                {item.label || (menuLabels && menuLabels[item.key]) || item.key}
                             </a>
                         )
 					))}

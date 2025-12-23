@@ -200,9 +200,9 @@ pages:
   committee:
     title: Committee
     content: ""
-  important-dates:
-    title: Important Dates
-    content: Check the important dates for the conference (Note the extended deadlines).
+  # important-dates:
+  #   title: Important Dates
+  #   content: Check the important dates for the conference (Note the extended deadlines).
   keynote:
     title: Keynote Speakers
     content: ""

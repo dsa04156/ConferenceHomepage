@@ -1,6 +1,7 @@
 export interface MenuItem {
     key: string;
     href: string;
+    label?: string;
     children?: MenuItem[];
 }
 

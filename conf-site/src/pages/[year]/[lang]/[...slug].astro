@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 }
 
 import { marked } from "marked";
-import { MENU_ITEMS } from "../../../config/menu";
+import type { MenuItem } from "../../../config/menu";
 
 const { data, pageData, slug } = Astro.props;
 const {
@@ -46,26 +46,48 @@ const {
   footer,
 } = data;
 
-const wsisKey = year === "2026" ? "wsis2026" : "wsis2025";
-const mapMenuItems = (items: typeof MENU_ITEMS) =>
-  items.map((item) => {
-    const updated = { ...item };
-    if (updated.key === "wsis2025") {
-      updated.key = wsisKey;
-    }
-    if (updated.href.includes("workshops/wsis2025")) {
-      updated.href = updated.href.replace(
-        "workshops/wsis2025",
-        `workshops/${wsisKey}`,
-      );
-    }
-    if (updated.children) {
-      updated.children = mapMenuItems(updated.children);
-    }
-    return updated;
+const toKey = (segment: string) => segment.replace(/-/g, "_");
+const findOrCreate = (
+  items: MenuItem[],
+  href: string,
+  key: string,
+  label: string,
+) => {
+  let found = items.find((item) => item.href === href);
+  if (!found) {
+    found = { key, href, label };
+    items.push(found);
+  } else if (!found.label) {
+    found.label = label;
+  }
+  return found;
+};
+
+const buildMenuItems = (pages: Record<string, { title: string }>) => {
+  const items: MenuItem[] = [
+    { key: "home", href: "", label: menu.home || "Home" },
+  ];
+  if (!pages) return items;
+
+  Object.keys(pages).forEach((path) => {
+    if (!path) return;
+    const segments = path.split("/");
+    let current = items;
+    segments.forEach((segment, index) => {
+      const href = segments.slice(0, index + 1).join("/");
+      const key = toKey(segment);
+      const label = menu[key] || pages[href]?.title || key;
+      const node = findOrCreate(current, href, key, label);
+      if (index === segments.length - 1) return;
+      if (!node.children) node.children = [];
+      current = node.children;
+    });
   });
 
-const menuItems = mapMenuItems(MENU_ITEMS);
+  return items;
+};
+
+const menuItems = buildMenuItems(data.pages || {});
 
 // Check if this is the committee page
 const isCommitteePage = slug === "committee";
@@ -168,7 +190,7 @@ const contentHtml = await marked.parse(pageData.content || "", { renderer });
                         href={getUrl(`${year}/${lang}/${item.href}`)}
                         class={`block px-4 py-3 rounded-lg text-sm font-bold uppercase transition-all ${slug === item.href ? "bg-blue-600 text-white shadow-md transform translate-x-1" : "text-gray-600 hover:bg-blue-50 hover:text-blue-700"}`}
                       >
-                        {(menu && menu[item.key]) || item.key}
+                        {item.label || (menu && menu[item.key]) || item.key}
                       </a>
                       {item.children && slug.startsWith(item.href) && (
                         <div class="pl-6 mt-1 space-y-1 pb-2">
@@ -177,7 +199,7 @@ const contentHtml = await marked.parse(pageData.content || "", { renderer });
                               href={getUrl(`${year}/${lang}/${sub.href}`)}
                               class={`block px-4 py-2 rounded-md text-xs font-bold uppercase transition-colors ${slug === sub.href ? "text-blue-700 bg-blue-50" : "text-gray-500 hover:text-blue-600"}`}
                             >
-                              - {(menu && menu[sub.key]) || sub.key}
+                              - {sub.label || (menu && menu[sub.key]) || sub.key}
                             </a>
                           ))}
                         </div>
