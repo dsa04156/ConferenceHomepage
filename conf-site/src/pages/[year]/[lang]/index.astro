@@ -229,9 +229,9 @@ const getUrl = (path: string) => {
   </div>
 
   <div class="max-w-7xl mx-auto px-4 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-14">
+    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,2.2fr)_minmax(0,1.4fr)] gap-8 lg:gap-14">
       <!-- Main Content Area -->
-      <div class="lg:col-span-2 space-y-12 order-2 lg:order-1">
+      <div class="space-y-12 order-2 lg:order-1">
         <!-- Notice Section -->
         <section>
           <NoticeBoard notices={notice} title="News & Notice" />
@@ -361,7 +361,7 @@ const getUrl = (path: string) => {
       </div>
 
       <!-- Sidebar -->
-      <div class="lg:col-span-1 self-start order-1 lg:order-2">
+      <div class="self-start order-1 lg:order-2">
         <div class="sticky top-24 space-y-4 h-fit">
           <ImportantDates dates={importantDates} title="Important Dates" />
           <div class="hidden lg:block">

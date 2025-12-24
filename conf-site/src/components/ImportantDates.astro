@@ -65,7 +65,7 @@ processedDates.forEach((item, index) => {
       {
         processedDates.map((item, index) => (
           <div
-            class={`flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 rounded-lg border transition-all ${
+            class={`flex flex-col sm:flex-row sm:flex-nowrap sm:justify-between sm:items-center sm:gap-3 p-3 rounded-lg border transition-all ${
               item.isPast
                 ? "bg-gray-50 border-gray-100 opacity-60 grayscale"
                 : index === nearestIndex
@@ -73,9 +73,10 @@ processedDates.forEach((item, index) => {
                   : "bg-white border-gray-100 hover:border-blue-100 hover:bg-blue-50/20"
             }`}
           >
-            <div class="flex flex-col">
+            <div class="flex flex-col sm:min-w-0 sm:pr-3">
               <span
-                class={`font-bold text-sm uppercase tracking-tight ${item.isPast ? "text-gray-400" : "text-[#1a3050]"}`}
+                class={`font-bold text-sm uppercase tracking-tight sm:whitespace-nowrap sm:truncate ${item.isPast ? "text-gray-400" : "text-[#1a3050]"}`}
+                title={item.label}
               >
                 {item.label}
               </span>
@@ -86,7 +87,7 @@ processedDates.forEach((item, index) => {
               )}
             </div>
             <div
-              class={`mt-2 sm:mt-0 font-mono text-sm font-bold ${item.isPast ? "text-gray-400" : "text-blue-700"}`}
+              class={`mt-2 sm:mt-0 sm:shrink-0 whitespace-nowrap font-mono text-sm font-bold ${item.isPast ? "text-gray-400" : "text-blue-700"}`}
             >
               {item.date}
             </div>
