@@ -62,7 +62,7 @@ const getUrl = (path: string) => {
 <Layout title={meta.title} lang={lang} year={year} menuLabels={menu}>
   <!-- Hero Section -->
   <section
-    class="relative bg-gray-900 text-white py-20 lg:py-32 overflow-hidden"
+    class="relative bg-gray-900 text-white py-2 sm:py-10 lg:py-20 overflow-hidden"
   >
     <div class="absolute inset-0 z-0">
       {
@@ -76,7 +76,7 @@ const getUrl = (path: string) => {
           <div class="w-full h-full bg-gradient-to-r from-[#003366] to-blue-900" />
         )
       }
-      <div class="absolute inset-0 bg-[#003366] mix-blend-multiply opacity-60">
+      <div class="absolute inset-0 bg-[#003366] mix-blend-multiply opacity-40">
       </div>
       <div
         class="absolute inset-0 bg-gradient-to-t from-[#003366] via-transparent to-transparent opacity-80"
@@ -85,23 +85,23 @@ const getUrl = (path: string) => {
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div
-        class="bg-black/50 backdrop-blur-sm p-8 md:p-12 rounded-xl max-w-2xl border border-white/10 shadow-2xl"
+        class="bg-black/50 backdrop-blur-sm p-4 sm:p-8 md:p-12 rounded-xl max-w-2xl border border-white/10 shadow-2xl"
       >
         <h1
-          class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight leading-tight"
+          class="text-lg sm:text-2xl md:text-4xl lg:text-6xl font-extrabold mb-1 tracking-tight leading-tight"
         >
           {hero.title}
         </h1>
         <p
-          class="text-lg md:text-xl text-blue-100 mb-8 font-light leading-relaxed"
+          class="text-xs sm:text-base md:text-xl text-blue-100 mb-3 font-light leading-relaxed"
         >
           {hero.subtitle}
         </p>
 
-        <div class="flex flex-col space-y-4 mb-10 text-base md:text-lg">
-          <div class="flex items-center text-white/90">
+        <div class="flex flex-col space-y-2 text-white/90 text-[11px] sm:text-sm md:text-lg mb-3">
+          <div class="flex items-center">
             <svg
-              class="w-5 h-5 mr-3 text-blue-400"
+              class="w-4 h-4 mr-2 text-blue-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -114,9 +114,9 @@ const getUrl = (path: string) => {
             >
             <span class="font-medium">{hero.date}</span>
           </div>
-          <div class="flex items-center text-white/90">
+          <div class="flex items-center">
             <svg
-              class="w-5 h-5 mr-3 text-blue-400"
+              class="w-4 h-4 mr-2 text-blue-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -137,7 +137,7 @@ const getUrl = (path: string) => {
 
         <a
           href={getUrl(`${year}/${lang}/${hero.ctaLink}`)}
-          class="inline-flex items-center bg-blue-600 text-white font-bold py-3.5 px-8 rounded-lg hover:bg-blue-700 transition-all shadow-xl transform hover:-translate-y-1 active:translate-y-0"
+          class="hidden md:inline-flex items-center bg-blue-600 text-white font-bold py-2.5 px-6 rounded-lg hover:bg-blue-700 transition-all shadow-xl transform hover:-translate-y-1 active:translate-y-0 text-sm sm:text-base"
         >
           {hero.cta}
           <svg
@@ -154,64 +154,82 @@ const getUrl = (path: string) => {
               d="M14 5l7 7-7 7"></path>
           </svg>
         </a>
+
       </div>
     </div>
   </section>
 
   <!-- Quick Links Section -->
   <div class="bg-gray-50 border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-        {
-          [
-            {
-              key: "call-for-papers",
-              icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z",
-            },
-            {
-              key: "committee",
-              icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
-            },
-            {
-              key: "submission",
-              icon: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12",
-            },
-            {
-              key: "venue-hotel",
-              icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
-            },
-          ].map((link) => (
-            <a
-              href={getUrl(`${year}/${lang}/${link.key}`)}
-              class="flex flex-col items-center justify-center p-6 bg-[#1D3557] rounded-xl shadow-lg hover:bg-[#003366] transition-all transform hover:-translate-y-2 group text-center"
-            >
-              <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <svg
-                  class="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d={link.icon}
-                  />
-                </svg>
-              </div>
-              <span class="text-white font-bold uppercase tracking-wider text-sm">
-                {(menu && menu[link.key.replace(/-/g, "_")]) || link.key}
-              </span>
-            </a>
-          ))
-        }
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm md:hidden">
+          {
+            [
+              "call-for-papers",
+              "committee",
+              "submission",
+              "venue-hotel",
+            ].map((key) => (
+              <a
+                href={getUrl(`${year}/${lang}/${key}`)}
+                class="font-semibold text-[#1D3557] hover:text-blue-700 transition-colors"
+              >
+                {(menu && menu[key.replace(/-/g, "_")]) || key}
+              </a>
+            ))
+          }
+        </div>
+        <div class="hidden md:grid md:grid-cols-4 md:gap-5">
+          {
+            [
+              {
+                key: "call-for-papers",
+                icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z",
+              },
+              {
+                key: "committee",
+                icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+              },
+              {
+                key: "submission",
+                icon: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12",
+              },
+              {
+                key: "venue-hotel",
+                icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+              },
+            ].map((link) => (
+              <a
+                href={getUrl(`${year}/${lang}/${link.key}`)}
+                class="flex flex-col items-center justify-center p-4 sm:p-5 bg-[#1D3557] rounded-xl shadow-lg hover:bg-[#003366] transition-all transform hover:-translate-y-2 group text-center"
+              >
+                <div class="w-10 h-10 sm:w-11 sm:h-11 bg-white/10 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                  <svg
+                    class="w-5 h-5 sm:w-6 sm:h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d={link.icon}
+                    />
+                  </svg>
+                </div>
+                <span class="text-white font-bold uppercase tracking-wider text-xs sm:text-sm">
+                  {(menu && menu[link.key.replace(/-/g, "_")]) || link.key}
+                </span>
+              </a>
+            ))
+          }
+        </div>
       </div>
-    </div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-14">
       <!-- Main Content Area -->
       <div class="lg:col-span-2 space-y-12 order-2 lg:order-1">
         <!-- Notice Section -->
@@ -229,20 +247,9 @@ const getUrl = (path: string) => {
             class="prose prose-blue max-w-none text-lg text-gray-700 leading-relaxed"
           >
             <p>{meta.description}</p>
-            <p class="mt-4">
-              MITA attracts well over 150 submissions and 200 participants each
-              year, serving as the prime forum for the dissemination of
-              knowledge in the multimedia and information field. MITA 2025 will
-              showcase high-quality oral and poster presentations sponsored by
-              the Korea Multimedia Society (KMMS). Researchers, developers, and
-              practitioners are welcomed to submit any new or emerging results
-              of multimedia technology and intelligent IoT systems. In MITA
-              2025, exceptional papers and contributors will be recognized with
-              prestigious awards. Original research papers on all aspects of
-              the theories and applications of multimedia information
-              technology are solicited for submission to MITA 2025, which is
-              organized and sponsored by the Korea Multimedia Society (KMMS).
-            </p>
+            {meta.longDescription && (
+              <p class="mt-4">{meta.longDescription}</p>
+            )}
             <div class="mt-6">
               <a
                 href={getUrl(`${year}/${lang}/call-for-papers`)}
@@ -355,11 +362,16 @@ const getUrl = (path: string) => {
 
       <!-- Sidebar -->
       <div class="lg:col-span-1 self-start order-1 lg:order-2">
-        <div class="sticky top-24 space-y-8 h-fit">
+        <div class="sticky top-24 space-y-4 h-fit">
           <ImportantDates dates={importantDates} title="Important Dates" />
-          <Sponsors partners={partners} />
+          <div class="hidden lg:block">
+            <Sponsors partners={partners} />
+          </div>
         </div>
       </div>
+    </div>
+    <div class="lg:hidden mt-10">
+      <Sponsors partners={partners} />
     </div>
   </div>
 

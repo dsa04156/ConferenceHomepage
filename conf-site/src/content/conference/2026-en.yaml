@@ -2,7 +2,17 @@ lang: en
 year: "2026"
 meta:
   title: MITA 2026
-  description: The 22th International Conference on Multimedia Information Technology and Applications
+  description: The 22nd International Conference on Multimedia Information Technology and Applications
+  longDescription: >
+    MITA attracts well over 150 submissions and 200 participants each year, serving as the prime
+    forum for the dissemination of knowledge in the multimedia and information field. MITA 2026
+    will showcase high-quality oral and poster presentations sponsored by the Korea Multimedia
+    Society (KMMS). Researchers, developers, and practitioners are welcomed to submit any new or
+    emerging results of multimedia technology and intelligent IoT systems. In MITA 2026,
+    exceptional papers and contributors will be recognized with prestigious awards. Original
+    research papers on all aspects of the theories and applications of multimedia information
+    technology are solicited for submission to MITA 2026, which is organized and sponsored by the
+    Korea Multimedia Society (KMMS).
 menu:
   home: Home
   workshops: Workshops
@@ -32,7 +42,7 @@ hero:
   location: "Grand Hyatt Jeju, Republic of Korea"
   cta: Submit Paper
   ctaLink: submission
-  bgImage: images/milan_hero_bg_1766384439675.png
+  bgImage: images/auckland.jpg
 posterImage: images/icufn_2026_poster_concept_1766384454703.png
 partners:
   -

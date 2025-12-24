@@ -8,6 +8,7 @@ const conferenceCollection = defineCollection({
         meta: z.object({
             title: z.string(),
             description: z.string(),
+            longDescription: z.string().optional(),
         }),
         menu: z.record(z.string()),
         hero: z.object({
