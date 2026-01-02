@@ -281,11 +281,23 @@ const getUrl = (path: string) => {
                 Conference Poster
               </h2>
               <div class="bg-gray-50 p-4 rounded-xl shadow-inner flex justify-center">
-                <img
-                  src={getUrl(posterImage)}
-                  alt={`${year} Conference Poster`}
-                  class="rounded-lg shadow-2xl max-w-full h-auto cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
-                />
+                {
+                  posterImage.toLowerCase().endsWith(".pdf") ? (
+                    <div class="w-full max-w-4xl">
+                      <iframe
+                        src={`${getUrl(posterImage)}#toolbar=0&navpanes=0&scrollbar=0&view=Fit`}
+                        class="w-full aspect-[1/1.414] rounded-lg shadow-2xl border-none bg-white"
+                        title="Conference Poster PDF"
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src={getUrl(posterImage)}
+                      alt={`${year} Conference Poster`}
+                      class="rounded-lg shadow-2xl max-w-full h-auto cursor-zoom-in hover:scale-[1.01] transition-transform duration-300"
+                    />
+                  )
+                }
               </div>
             </section>
           )

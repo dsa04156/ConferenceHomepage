@@ -1,15 +1,20 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
 
-import tailwindcss from '@tailwindcss/vite';
-
-// https://astro.build/config
-const isProd = process.env.NODE_ENV === 'production';
+const isCloudflarePages = process.env.CF_PAGES === "1";
 
 export default defineConfig({
-  site: 'https://dsa04156.github.io',
-  base: isProd ? '/ConferenceHomepage/' : '/',
+  // Pages는 루트 배포라 base 불필요
+  site: isCloudflarePages
+    ? "https://conferencehomepage.pages.dev"
+    : "https://dsa04156.github.io",
+
+  base: isCloudflarePages ? "/" : "/ConferenceHomepage/",
+
+  trailingSlash: "always",
+
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+  },
 });

@@ -4,15 +4,7 @@ meta:
   title: MITA 2026
   description: The 22nd International Conference on Multimedia Information Technology and Applications
   longDescription: >
-    MITA attracts well over 150 submissions and 200 participants each year, serving as the prime
-    forum for the dissemination of knowledge in the multimedia and information field. MITA 2026
-    will showcase high-quality oral and poster presentations sponsored by the Korea Multimedia
-    Society (KMMS). Researchers, developers, and practitioners are welcomed to submit any new or
-    emerging results of multimedia technology and intelligent IoT systems. In MITA 2026,
-    exceptional papers and contributors will be recognized with prestigious awards. Original
-    research papers on all aspects of the theories and applications of multimedia information
-    technology are solicited for submission to MITA 2026, which is organized and sponsored by the
-    Korea Multimedia Society (KMMS).
+    MITA is a leading international conference in multimedia information technology, providing a global forum for researchers and practitioners to share advances in AI-based media processing, multimedia systems, intelligent IoT, and next-generation media applications.
 menu:
   home: Home
   workshops: Workshops
@@ -39,46 +31,33 @@ hero:
   title: MITA 2026
   subtitle: The 22th International Conference on Multimedia Information Technology and Applications
   date: "July 21 (Mon) - 24 (Thu), 2026"
-  location: "Grand Hyatt Jeju, Republic of Korea"
+  location: "The University of Auckland, Auckland, New Zealand"
   cta: Submit Paper
   ctaLink: submission
   bgImage: images/auckland.jpg
-posterImage: images/icufn_2026_poster_concept_1766384454703.png
+posterImage: images/poster/2026.pdf
 partners:
-  -
-    name: Springer
+  - name: Springer
     logo: images/springer_logo.svg
-  -
-    name: CCIS
+  - name: CCIS
     logo: images/CCIS-logo.jpg
     description: Accepted papers will be published in Springer CCIS series.
 importantDates:
-  -
-    label: Paper Submission (Regular / Short Papers)
-    date: "2026-06-25"
-    note: Extended
-  -
-    label: Author Notification (Regular / Short Papers)
-    date: "2026-06-30"
-    note: Extended
-  -
-    label: Full and Camera-ready Paper
-    date: "2026-07-04"
-    note: Extended
-  -
-    label: Pre-registration Deadline
-    date: "2026-07-13"
-    note: Extended
-  -
-    label: MITA 2026 Conference
-    date: "2026-12-31"
+  - label: Workshop Proposal Due
+    date: "2026-03-31"
+  - label: Paper Submission Due
+    date: "2026-06-01"
+  - label: Author Notification
+    date: "2026-06-15"
+  - label: Camera-Ready Submission Due
+    date: "2026-06-23"
+  - label: MITA 2026 Conference
+    date: "2026-07-21"
 notice:
-  -
-    date: "2026-12-22"
+  - date: "2026-12-22"
     title: "Presentation Guidelines (Oral, Poster, Video) Announced"
     isNew: true
-  -
-    date: "2024-12-19"
+  - date: "2024-12-19"
     title: MITA 2026 Website Open
     isNew: false
 pages:
@@ -89,33 +68,33 @@ pages:
     title: CCMS Workshop
     content: |
       ### Topics for CCMS
-      
+
       **Systems & Networks**
-      
+
       - Multimedia & Communication Systems
       - Multimedia Networks and Communication
       - Distributed Networks and Algorithms
       - Problems in Actual Systems and Empirical Approaches
-      
+
       **Devices, Signals & Processing**
-      
+
       - Nonlinear Devices and Communication Systems
       - Digital Signal Processing for Communication
       - Multimedia Signal Processing for Communication
       - Electromagnetic Wave Propagation Theory and Modeling
-      
+
       **Applications & Integration**
-      
+
       - Multimedia Applications
       - Multimedia Contents and IT Convergence
       - Multimedia Information Processing and Systems
       - Neural and Biological Systems (Communication Systems Inspired)
-      
+
   workshops/ccms-workshop/ccms-submission:
     title: CCMS Submission
     content: |
       Papers submitted to the CCMS Workshop can be submitted through the conference submission system (CMT) by selecting the CCMS track.
-      
+
       [Go to Microsoft CMT](https://cmt3.research.microsoft.com/MITA2026)
   workshops/ccms-workshop/ccms-program-schedule:
     title: CCMS Program
@@ -133,77 +112,66 @@ pages:
     title: Notice
     content: |
       ### 1. Oral Presentation
-      
+
       - Presentation materials (PPT) should be prepared on a USB memory drive. (Beam projector will be used)
       - Presentation time: 15 minutes for talk, 5 minutes for Q&A (Total 20 minutes)
       - Please strictly adhere to the scheduled presentation time.
-      
+
       ### 2. Poster Presentation
-      
+
       - We recommend printing one A1 size (vertical) sheet.
       - Presenters should prepare a 3-5 minute summary explanation.
       - If A1 printing is difficult, you may print and attach 10 PPT slides.
       - Poster session duration is 120 minutes. Please note that if you leave your poster unattended, it may be marked as 'No Show' and potentially unpublished.
       - You should stay by your poster to answer questions from participants.
-      
+
       ### 3. Video Presentation
-      
+
       - **Production Method:** Create a video of approximately 15 minutes using PPT recording, ZOOM, or OBS where the PPT screen is shown in full.
       - **Resolution:** 1920X1080 recommended (minimum 1280X720)
       - **File Size:** Maximum 150MB
   call-for-papers:
     title: Call for Papers
     content: |
-      ### Technical Scope
-      
-      Topics include, but are not limited to:
-      
+      ### Topics of Interest (but not limited to)
+
       - Artificial Intelligence
-      - Multimedia System
-      - Database in Multimedia
+      - Multimedia Systems
       - Multimedia Applications
       - Graphics and 3D Modeling
-      - Embedded System in Multimedia
+      - Embedded Systems for Multimedia
       - Multimedia Information Security
-      - Human Computer Interaction
-      - Multimedia Contents
-      - Internet Technology and Social Media
-      - Digital Signal, Image and Video Processing
+      - Human–Computer Interaction
+      - Digital Signal, Image, and Video Processing
       - Multimedia Networks and Communication
-      - Game and Media Arts
-      - Virtual Reality
+      - Virtual Reality and Media Arts
   call-for-papers/call-for-conference-paper:
     title: Call for Conference Paper
     content: |
-      ### Paper Submission Guidelines
-      
-      - Maximum length: 2 pages (short paper) or 3-4 pages (regular paper).
-      - Format: A4 size, single space, double column, Times New Roman font (size 10).
-      - Accepted papers will be published by Springer in the **Communications in Computer and Information Science (CCIS)** series.
-      - Springer CCIS is indexed in SCOPUS, EI Compendex, etc.
-      
-      At least one author of each accepted paper must present the paper at the conference.
-      
-      [Submit your paper via Microsoft CMT](https://cmt3.research.microsoft.com/MITA2026)
+      ### Conference Tracks
+
+      - **Springer CCIS Track**: peer-reviewed, published by Springer CCIS
+      - **Regular MITA Track**: peer-reviewed proceedings
+      - **Abstract Track – Poster Session only**: peer-reviewed proceedings
   call-for-papers/call-for-journal-paper:
     title: Call for Journal Paper
     content: |
       ### Journal Track (JMIS)
-      
+
       We are pleased to announce a special Journal Track for MITA 2026, in collaboration with the Journal of Multimedia Information System (JMIS).
-      
+
       #### Dual Publication Track
-      
+
       Papers submitted to this track will undergo peer review for potential publication in JMIS. Authors of accepted papers will be invited to give oral presentations at MITA 2026, and only the abstracts will appear in the MITA proceedings. Full papers will be published in JMIS.
-      
+
       [Go to JMIS Submission Site](https://www.manuscriptlink.com/journals/jmis) (Ensure to select 'MITA 2026 Journal Track' as submission type)
   call-for-papers/call-for-workshop:
     title: Call for Workshop
     content: |
       ### Call for Workshop Proposals
-      
+
       We are soliciting proposals for workshops to be held together with MITA 2026.
-      
+
       - Proposal Deadline: April 11, 2026
       - Notification: April 18, 2026
       - Submission Email: [kmms1@kmms.or.kr](mailto:kmms1@kmms.or.kr)
@@ -222,172 +190,141 @@ pages:
   submission:
     title: Submission
     content: |
-      **Submission Link:** [Microsoft CMT MITA2026](https://cmt3.research.microsoft.com/MITA2026)
-      
-      Papers of MITA 2026, based on the peer review process, will be published in the proceedings of Communications in Computer and Information Science (CCIS) series by Springer.
+      ### Submission Information
+
+      CCIS Track submissions must follow the Springer CCIS template. MITA Track submissions follow the standard MITA format. All papers undergo rigorous peer review.
+
+      **Our submission site will be open very soon!**
   registration:
     title: Registration
     content: |
       ### Registration
-      
+
       Please complete your registration by the deadline to secure your participation.
-      
+
       - **Early Registration Deadline:** July 13, 2026
       - **On-site Registration:** Available at the venue (limited capacity)
       - **Payment Method:** Credit card or bank transfer
-      
+
       **Registration Steps**
-      
+
       1. Create an account on the registration portal.
       2. Fill out participant information and select your category.
       3. Complete payment and keep the confirmation email.
-      
+
       [Go to Registration Portal](https://kmms.or.kr/pay)
-      
+
       For withholding tax or official invoice requests, please contact the secretariat.
-      
+
   registration/registration-fee:
     title: Registration Fee
     content: |
       ### Registration Fees
-      
+
       | Category | Local (KRW) | Overseas (USD) |
       | :--- | :--- | :--- |
       | Full Registration (Faculty/Researcher) | 600,000 KRW | 450 USD |
       | Student Registration | 400,000 KRW | 300 USD |
-      
+
       [Go to Payment Page (Local/International)](https://kmms.or.kr/pay)
   venue-hotel:
     title: "Venue & Hotel"
     content: |
-      ### Grand Hyatt Jeju
+      ### The University of Auckland
 
       **Address**
-      12 Noyeon-ro, Jeju-si, Republic of Korea
+      Auckland, New Zealand
 
-      ![Grand Hyatt Jeju](images/hotel.png)
-
-      **Nearby Landmarks**
-      - Jeju Dream Tower (on-site)
-      - Jeju International Airport (CJU) - approx. 10 minutes by taxi
-
-      **Transportation**
-      - **Taxi:** About 10 minutes from the airport. Ask for "Grand Hyatt Jeju" or "Jeju Dream Tower".
-      - **Public Bus:** Routes 316, 465, etc. Alight at Wonnohyeong stop.
-
-      **Hotel Reservation**
-      - Special conference rates may apply. Please check the official notice page for updates.
+      The University of Auckland is New Zealand's leading university, located in the heart of Auckland city.
 
       **Map**
-      [Open in Google Maps](https://maps.google.com/?q=Grand%20Hyatt%20Jeju)
+      [Open in Google Maps](https://maps.google.com/?q=The%20University%20of%20Auckland)
 committee:
-  -
-    role: General Chair
+  - role: General Chair
     name: Byung Gyu Kim
     affiliation: "Sookmyung Women's University, South Korea"
     image: images/COMMITTEE/김병규교수.png
-  -
-    role: Organizing Committee Co-Chairs
+  - role: Organizing Committee Co-Chairs
     name: Namje Park
     affiliation: "Jeju National University, South Korea"
     image: images/COMMITTEE/박남제교수.jpg
-  -
-    role: Organizing Committee Co-Chairs
+  - role: Organizing Committee Co-Chairs
     name: Hiroo Sekiya
     affiliation: "Chiba University, Japan"
     image: images/COMMITTEE/Hiroo Sekiya.png
-  -
-    role: Program Committee Co-Chair, CCMS Technical Program Committee Co-Chairs
+  - role: Program Committee Co-Chair, CCMS Technical Program Committee Co-Chairs
     name: Deokwoo Lee
     affiliation: "Keimyung University, South Korea"
     image: images/COMMITTEE/이덕우교수.jpg
-  -
-    role: Program Committee Co-Chair
+  - role: Program Committee Co-Chair
     name: Hidehiro Nakano
     affiliation: "Tokyo City University, Japan"
     image: images/COMMITTEE/Hidehiro Nakano.jpg
-  -
-    role: Program Committee Co-Chair
+  - role: Program Committee Co-Chair
     name: Wen-Huang Cheng
     affiliation: "National Taiwan University, Taiwan"
     image: images/COMMITTEE/Wen-Huang Cheng.jpg
-  -
-    role: CCMS Organizing Committee Co-Chairs
+  - role: CCMS Organizing Committee Co-Chairs
     name: Young-Woo Kwon
     affiliation: "Kyungpook National University, South Korea"
     image: images/COMMITTEE/권영우교수.jpg
-  -
-    role: CCMS Organizing Committee Co-Chairs
+  - role: CCMS Organizing Committee Co-Chairs
     name: Atsushi Uchida
     affiliation: "Saitama University, Japan"
     image: images/COMMITTEE/Atsushi.jpg
-  -
-    role: CCMS Technical Program Committee Co-Chairs
+  - role: CCMS Technical Program Committee Co-Chairs
     name: Noriaki Kamiyama
     affiliation: "Ritsumeikan University, Japan"
     image: images/COMMITTEE/Noriaki Kamiyama.jpg
-  -
-    role: CCMS Technical Program Committee Co-Chairs
+  - role: CCMS Technical Program Committee Co-Chairs
     name: Kazutaka Kanno
     affiliation: "Saitama University, Japan"
     image: images/COMMITTEE/Kazutaka.jpg
-  -
-    role: CCMS Technical Program Committee Co-Chairs
+  - role: CCMS Technical Program Committee Co-Chairs
     name: Ryo Nakamura
     affiliation: "Fukuoka University, Japan"
     image: images/COMMITTEE/Ryo.jpg
-  -
-    role: Plenary Chair
+  - role: Plenary Chair
     name: Young-Ho Park
     affiliation: "Sookmyung Women’s University, South Korea"
     image: images/COMMITTEE/박영호교수.jpg
-  -
-    role: Special Session Co-Chairs
+  - role: Special Session Co-Chairs
     name: Sanghyun Seo
     affiliation: "Chung-Ang University, South Korea"
     image: images/COMMITTEE/서상현교수.jpg
-  -
-    role: Special Session Co-Chairs
+  - role: Special Session Co-Chairs
     name: Partha Pratim Roy
     affiliation: "IIT Roorkey, India"
     image: images/COMMITTEE/PPRoy.jpg
-  -
-    role: Tutorial Co-Chairs
+  - role: Tutorial Co-Chairs
     name: Sangoh Park
     affiliation: "Chung-Ang University, South Korea"
     image: images/COMMITTEE/박상오교수.jpg
-  -
-    role: Tutorial Co-Chairs
+  - role: Tutorial Co-Chairs
     name: Lu Leng
     affiliation: "Nanchang Hangkong University, China"
     image: images/COMMITTEE/Lu_Leng.png
-  -
-    role: Women ICT Session Chair
+  - role: Women ICT Session Chair
     name: Hyeyoung Ko
     affiliation: "Seoul Women’s University, South Korea"
     image: images/COMMITTEE/고혜영교수.jpg
-  -
-    role: Educational Activities Chair
+  - role: Educational Activities Chair
     name: Taewan Kim
     affiliation: "Dongduk Women’s University, South Korea"
     image: images/COMMITTEE/김태완교수.jpg
-  -
-    role: Publication Co-Chairs
+  - role: Publication Co-Chairs
     name: Suk-Hwan Lee
     affiliation: "Dong-A University, South Korea"
     image: images/COMMITTEE/이석환교수.jpg
-  -
-    role: Publication Co-Chairs
+  - role: Publication Co-Chairs
     name: Jiwoo Kang
     affiliation: "Sookmyung Women’s University, South Korea"
     image: images/COMMITTEE/강지우교수.jpg
-  -
-    role: Local Arrangement Chair
+  - role: Local Arrangement Chair
     name: Seok Chan Jeong
     affiliation: "Dong-Eui University, South Korea"
     image: images/COMMITTEE/정석찬교수.jpg
-  -
-    role: Publicity Chair
+  - role: Publicity Chair
     name: Se-Hoon Jung
     affiliation: "Sunchon National University, South Korea"
     image: images/COMMITTEE/정세훈교수.jpg
@@ -396,172 +333,138 @@ footer:
   copyright: (c) 2026 MITA. All Rights Reserved.
   contact: "Tel: +82-51-712-9602 / E-mail: kmms1@kmms.or.kr"
 keynotes:
-  -
-    title: Communications and Networking in Mega-Constellations
+  - title: Communications and Networking in Mega-Constellations
     time: "11:20 ~ 11:50"
-    date: "February 20, 2026 (Wednesday)"
+    date: "July 22, 2026 (Wednesday)"
     speaker: Prof. Gunes Karabulut Kurt
     affiliation: "Polytechnique Montreal, Canada"
     abstract: "The wide footprint of satellites holds the promise of providing ubiquitous connectivity. However, challenges persist in overcoming bottlenecks to ensure sufficiently high data rates for under-connected communities while maintaining uninterrupted communication. This talk identifies these challenges regarding communications and networking perspectives, summarizes recent research efforts addressing them, and highlights key open issues for future investigation."
     biography: "Gunes Karabulut-Kurt is a Canada Research Chair (Tier 1) in New Frontiers in Space Communications and a Professor at Polytechnique Montreal, Montreal, QC, Canada. She is the Director of the Poly-Grames Research Center, and is co-founder and Director of Education and Training of ASTROLITH, Transdisciplinary Research Unit of Space Resource and Infrastructure Engineering at Polytechnique Montreal. She is also an adjunct research professor at Carleton University, Canada. Gunes received the B.S. degree with high honors in electronics and electrical engineering from Bogazici University, Istanbul, Turkiye, in 2000 and the M.A.Sc. and the Ph.D. degrees in electrical engineering from the University of Ottawa, ON, Canada, in 2002 and 2006, respectively. She worked in different technology companies in Canada and Turkiye between 2005 and 2010. From 2010 to 2021, she was a professor at Istanbul Technical University. Gunes is a Marie Curie Fellow and has received the Turkish Academy of Sciences Outstanding Young Scientist (TUBA-GEBIP) Award in 2019."
-  -
-    title: Trustworthy AI for Multimedia Systems
+  - title: Trustworthy AI for Multimedia Systems
     time: "13:30 ~ 14:00"
-    date: "February 20, 2026 (Wednesday)"
+    date: "July 22, 2026 (Wednesday)"
     speaker: Prof. Minji Park
     affiliation: "KAIST, South Korea"
     abstract: "This talk explores practical approaches to building trustworthy AI pipelines for multimedia applications, focusing on transparency, robustness, and evaluation across real-world datasets."
     biography: "Minji Park is a professor at KAIST. Her research spans explainable AI, multimedia understanding, and human-centered evaluation. She has published widely and serves on multiple program committees."
     image: images/profile_placeholder_1_1766384557698.png
-  -
-    title: Edge-to-Cloud Media Processing
+  - title: Edge-to-Cloud Media Processing
     time: "14:10 ~ 14:40"
-    date: "February 20, 2026 (Wednesday)"
+    date: "July 22, 2026 (Wednesday)"
     speaker: Dr. Alex Chen
     affiliation: "National Taiwan University, Taiwan"
     abstract: We present a scalable edge-to-cloud architecture for low-latency media analytics and discuss deployment strategies for heterogeneous networks.
     biography: "Alex Chen leads the Systems and Networking Lab at NTU, working on distributed systems for multimedia, IoT, and networking."
     image: images/profile_placeholder_2_1766384571281.png
-  -
-    title: Human-Computer Interaction in Immersive Media
+  - title: Human-Computer Interaction in Immersive Media
     time: "15:00 ~ 15:30"
-    date: "February 20, 2026 (Wednesday)"
+    date: "July 22, 2026 (Wednesday)"
     speaker: Prof. Sofia Martinez
     affiliation: "University of Queensland, Australia"
     abstract: This keynote reviews interaction design patterns for immersive media experiences and highlights emerging opportunities for inclusive design.
     biography: Sofia Martinez is a professor at UQ focusing on HCI and immersive media. She has led multiple industry collaborations in AR/VR.
     image: images/profile_placeholder_1_1766384557698.png
 programSchedule:
-  -
-    dateLabel: "Day 1 ? February 20, 2026 (Wednesday)"
+  - dateLabel: "Day 1 - July 21, 2026 (Tuesday)"
     sessions:
-      -
-        time: "08:30 ~ 09:30"
+      - time: "08:30 ~ 09:30"
         title: Registration
-        location: Grand Hyatt Jeju Lobby
-      -
-        time: "09:30 ~ 10:00"
+        location: University of Auckland Lobby
+      - time: "09:30 ~ 10:00"
         title: Opening Ceremony
         location: Main Hall
-      -
-        time: "10:00 ~ 10:50"
+      - time: "10:00 ~ 10:50"
         title: Keynote I
         speaker: Prof. Gunes Karabulut Kurt
         location: Main Hall
-      -
-        time: "10:50 ~ 11:10"
+      - time: "10:50 ~ 11:10"
         title: Coffee Break
         location: Foyer
-      -
-        time: "11:10 ~ 12:30"
+      - time: "11:10 ~ 12:30"
         title: Technical Session A1
         note: Multimedia Systems
         location: Room A
-      -
-        time: "12:30 ~ 14:00"
+      - time: "12:30 ~ 14:00"
         title: Lunch
         location: Banquet Hall
-      -
-        time: "14:00 ~ 15:30"
+      - time: "14:00 ~ 15:30"
         title: Technical Session A2
         note: AI Applications
         location: Room A
-      -
-        time: "15:40 ~ 17:00"
+      - time: "15:40 ~ 17:00"
         title: Poster Session
         location: Exhibition Area
-  -
-    dateLabel: "Day 2 ? February 21, 2026 (Thursday)"
+  - dateLabel: "Day 2 - July 22, 2026 (Wednesday)"
     sessions:
-      -
-        time: "09:00 ~ 09:40"
+      - time: "09:00 ~ 09:40"
         title: Keynote II
         speaker: Prof. Minji Park
         location: Main Hall
-      -
-        time: "09:50 ~ 11:20"
+      - time: "09:50 ~ 11:20"
         title: Technical Session B1
         note: Networks & Communications
         location: Room A
-      -
-        time: "11:20 ~ 11:40"
+      - time: "11:20 ~ 11:40"
         title: Coffee Break
         location: Foyer
-      -
-        time: "11:40 ~ 12:30"
+      - time: "11:40 ~ 12:30"
         title: Panel Discussion
         location: Main Hall
-      -
-        time: "12:30 ~ 14:00"
+      - time: "12:30 ~ 14:00"
         title: Lunch
         location: Banquet Hall
-      -
-        time: "14:00 ~ 15:00"
+      - time: "14:00 ~ 15:00"
         title: Technical Session B2
         note: Multimedia Security
         location: Room A
-      -
-        time: "15:10 ~ 16:00"
+      - time: "15:10 ~ 16:00"
         title: Closing & Awards
         location: Main Hall
 
 workshopSchedules:
   "workshops/ccms-workshop/ccms-program-schedule":
-    -
-      dateLabel: "CCMS Day ? February 19, 2026 (Tuesday)"
+    - dateLabel: "CCMS Day - July 20, 2026 (Monday)"
       sessions:
-        -
-          time: "09:00 ~ 09:30"
+        - time: "09:00 ~ 09:30"
           title: "CCMS Opening"
           note: "Welcome & overview"
           location: "Room B"
-        -
-          time: "09:30 ~ 10:30"
+        - time: "09:30 ~ 10:30"
           title: "Invited Talk"
           speaker: "Dr. J. Lee"
           location: "Room B"
-        -
-          time: "10:40 ~ 12:00"
+        - time: "10:40 ~ 12:00"
           title: "Paper Session 1"
           note: "Communication Systems"
           location: "Room B"
-    -
-      dateLabel: "CCMS Day ? February 20, 2026 (Wednesday)"
+    - dateLabel: "CCMS Day - July 21, 2026 (Tuesday)"
       sessions:
-        -
-          time: "09:00 ~ 10:20"
+        - time: "09:00 ~ 10:20"
           title: "Paper Session 2"
           note: "Multimedia Networks"
           location: "Room B"
-        -
-          time: "10:30 ~ 11:20"
+        - time: "10:30 ~ 11:20"
           title: "Panel Discussion"
           note: "Future of CCMS"
           location: "Room B"
   "workshops/wsis2026/wsis-program-schedule":
-    -
-      dateLabel: "WSIS Day ? February 19, 2026 (Tuesday)"
+    - dateLabel: "WSIS Day - July 20, 2026 (Monday)"
       sessions:
-        -
-          time: "13:30 ~ 14:20"
+        - time: "13:30 ~ 14:20"
           title: "WSIS Opening"
           note: "Kickoff session"
           location: "Room C"
-        -
-          time: "14:30 ~ 16:00"
+        - time: "14:30 ~ 16:00"
           title: "Paper Session 1"
           note: "Smart Intelligence"
           location: "Room C"
-    -
-      dateLabel: "WSIS Day ? February 20, 2026 (Wednesday)"
+    - dateLabel: "WSIS Day - July 21, 2026 (Tuesday)"
       sessions:
-        -
-          time: "09:30 ~ 10:30"
+        - time: "09:30 ~ 10:30"
           title: "Invited Talk"
           speaker: "Prof. A. Kim"
           location: "Room C"
-        -
-          time: "10:40 ~ 12:00"
+        - time: "10:40 ~ 12:00"
           title: "Paper Session 2"
           note: "AI Applications"
           location: "Room C"
