@@ -60,12 +60,12 @@ importantDates:
 notice:
   - date: "2025-12-22"
     title: "Presentation Guidelines (Oral, Poster, Video) Announced"
-    content: "본문 내용을 적어주세요"
+    content: "본문 내용을 적어어주세요"
     isNew: true
     image: "images/notice/hotel.png"
   - date: "2024-12-19"
     title: MITA 2026 Website Open
-    content: "본문 내용을 적어주세요."
+    content: "본문 내용을 적어주세요"
     isNew: false
 pages:
   workshops:
@@ -262,7 +262,7 @@ pages:
     title: "Venue & Hotel"
     content: |
       ### The University of Auckland
-      ![Venue](images/venue/hotel.png)
+      ![Venue](images/venue/venue.jpg)
 
       **Address**
       Auckland, New Zealand
@@ -271,11 +271,7 @@ pages:
       As New Zealand's largest and most diverse city, it provides an inspiring backdrop for productive academic exchange.
       Visitors can easily unwind with vibrant waterfront dining, cultural attractions, and breathtaking coastal landscapes.
       From professional gatherings to memorable leisure experiences, Auckland delivers the perfect balance of work and relaxation.
-
-      The University of Auckland, New Zealand's leading research institution, offers a vibrant academic environment at the heart of the city.
-      Its modern facilities, strong global reputation, and diverse scholarly community make it an ideal venue for hosting international conferences.
-      With excellent accessibility and a campus surrounded by cultural and urban attractions, it provides a seamless blend of productivity and inspiration.
-
+      The University of Auckland, New Zealand,s leading research institution, offers a vibrant academic environment at the heart of the city. Its modern facilities, strong global reputation, and diverse scholarly community make it an ideal venue for hosting international conferences. With excellent accessibility and a campus surrounded by cultural and urban attractions, it provides a seamless blend of productivity and inspiration.
       **Map**
       [Open in Google Maps](https://maps.google.com/?q=The%20University%20of%20Auckland)
 committee:
@@ -482,6 +478,7 @@ workshopSchedules:
           title: "Paper Session 2"
           note: "AI Applications"
           location: "Room C"
+
 
 
 
