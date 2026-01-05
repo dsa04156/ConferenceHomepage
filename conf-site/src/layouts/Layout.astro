@@ -33,13 +33,21 @@ if (currentPath.includes(`/${lang}/`)) {
     otherLangUrl = currentPath.replace(`/${lang}`, `/${otherLang}`);
 }
 
-// Function to construct URL respecting base
+// Function to construct URL respecting base and trailing slash policy
+const addTrailingSlash = (path: string) => {
+    if (!path) return path;
+    if (path.endsWith('/')) return path;
+    // Don't add slash to asset-like paths
+    if (/\.[a-zA-Z0-9]+$/.test(path)) return path;
+    return `${path}/`;
+};
+
 const getUrl = (path: string) => {
     // path should be like "2025/ko/..."
     const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-    // Ensure base ends with /
     const normalizedBase = base.endsWith('/') ? base : base + '/';
-    return `${normalizedBase}${cleanPath}`;
+    const finalPath = addTrailingSlash(cleanPath);
+    return `${normalizedBase}${finalPath}`;
 };
 
 const toKey = (segment: string) => segment.replace(/-/g, '_');

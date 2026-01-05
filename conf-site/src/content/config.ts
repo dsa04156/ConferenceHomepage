@@ -42,6 +42,8 @@ const conferenceCollection = defineCollection({
                 title: z.string(),
                 link: z.string().optional(),
                 isNew: z.boolean().optional(),
+                content: z.string().optional(),
+                image: z.string().optional(),
             })
         ).optional(),
         committee: z.array(

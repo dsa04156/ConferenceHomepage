@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import ImportantDates from "../../../components/ImportantDates.astro";
 import Sponsors from "../../../components/Sponsors.astro";
+import NoticeBoard from "../../../components/NoticeBoard.astro";
 import CommitteeGrid from "../../../components/CommitteeGrid.astro";
 import KeynoteCards from "../../../components/KeynoteCards.astro";
 import ProgramSchedule from "../../../components/ProgramSchedule.astro";
@@ -39,6 +40,7 @@ const {
   menu,
   importantDates,
   partners = [],
+  notice = [],
   committee = [],
   programSchedule = [],
   workshopSchedules = {},
@@ -93,6 +95,7 @@ const menuItems = buildMenuItems(data.pages || {});
 const isCommitteePage = slug === "committee";
 const isKeynotePage = slug === "keynote";
 const isProgramPage = slug === "program";
+const isNoticePage = slug === "notice";
 const isCallForPapersPage = slug.startsWith("call-for-papers");
 const workshopScheduleForPage =
   workshopSchedules && slug ? workshopSchedules[slug] : [];
@@ -114,10 +117,18 @@ const sidebarTitle =
 const sidebarItems = currentSection?.children || [];
 
 const base = import.meta.env.BASE_URL;
+const addTrailingSlash = (path: string) => {
+  if (!path) return path;
+  if (path.endsWith("/")) return path;
+  if (/\.[a-zA-Z0-9]+$/.test(path)) return path;
+  return `${path}/`;
+};
+
 const getUrl = (path: string) => {
   const cleanPath = path.startsWith("/") ? path.slice(1) : path;
   const normalizedBase = base.endsWith("/") ? base : base + "/";
-  return `${normalizedBase}${cleanPath}`;
+  const finalPath = addTrailingSlash(cleanPath);
+  return `${normalizedBase}${finalPath}`;
 };
 
 // Convert Markdown to HTML with base-aware asset URLs
@@ -255,9 +266,19 @@ const contentHtml = await marked.parse(pageData.content || "", { renderer });
             </button>
           </div>
 
-          <div class="prose max-w-none prose-slate">
-            <Fragment set:html={contentHtml} />
-          </div>
+          {isNoticePage ? (
+            notice && notice.length > 0 ? (
+              <NoticeBoard
+                notices={notice}
+                title="News & Notice"
+                showContent={true}
+              />
+            ) : null
+          ) : (
+            <div class="prose max-w-none prose-slate">
+              <Fragment set:html={contentHtml} />
+            </div>
+          )}
 
           {
             isCommitteePage && committee && committee.length > 0 && (

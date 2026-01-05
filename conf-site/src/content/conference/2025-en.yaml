@@ -81,10 +81,12 @@ notice:
   -
     date: "2025-12-22"
     title: "Presentation Guidelines (Oral, Poster, Video) Announced"
+    content: "발표 가이드라인(구두/포스터/비디오) 안내가 업로드되었습니다. 발표 자료 준비와 세션 운영 안내를 확인해주세요."
     isNew: true
   -
     date: "2024-12-19"
     title: MITA 2025 Website Open
+    content: "MITA 2025 웹사이트가 오픈되었습니다. 주요 일정과 제출 정보를 확인해주세요."
     isNew: false
 pages:
   workshops:
@@ -230,6 +232,8 @@ pages:
       **Submission Link:** [Microsoft CMT MITA2025](https://cmt3.research.microsoft.com/MITA2025)
       
       Papers of MITA 2025, based on the peer review process, will be published in the proceedings of Communications in Computer and Information Science (CCIS) series by Springer.
+
+      The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
   registration:
     title: Registration
     content: |

@@ -35,7 +35,7 @@ hero:
   cta: Submit Paper
   ctaLink: submission
   bgImage: images/auckland.jpg
-posterImage: images/poster/2026.pdf
+posterImage: images/poster/2026_CFP.pdf
 partners:
   - name: Springer
     logo: images/springer_logo.svg
@@ -43,22 +43,28 @@ partners:
     logo: images/CCIS-logo.jpg
     description: Accepted papers will be published in Springer CCIS series.
 importantDates:
-  - label: Workshop Proposal Due
-    date: "2026-03-31"
-  - label: Paper Submission Due
+  - label: Paper Submission (Regular / Short Papers)
     date: "2026-06-01"
-  - label: Author Notification
-    date: "2026-06-15"
-  - label: Camera-Ready Submission Due
-    date: "2026-06-23"
+  - label: Author Notification (Regular / Short Papers)
+    date: "2026-06-09"
+  - label: Abstract Submission (Poster Only)
+    date: "2026-07-01"
+  - label: Abstract Notification (Poster Only)
+    date: "2026-07-08"
+  - label: Full and Camera-Ready Paper (Regular / Short)
+    date: "2026-07-06"
+  - label: Pre-registration Deadline
+    date: "2026-07-10"
   - label: MITA 2026 Conference
     date: "2026-07-21"
 notice:
-  - date: "2026-12-22"
+  - date: "2025-12-22"
     title: "Presentation Guidelines (Oral, Poster, Video) Announced"
+    content: "본문 내용을 적어주세요"
     isNew: true
   - date: "2024-12-19"
     title: MITA 2026 Website Open
+    content: "본문 내용을 적어주세요."
     isNew: false
 pages:
   workshops:
@@ -133,18 +139,36 @@ pages:
   call-for-papers:
     title: Call for Papers
     content: |
-      ### Topics of Interest (but not limited to)
+      MITA2026, organized by the Korean Multimedia Society (KMMS) and presented by Chinese Image Processing & Pattern Recognition (IPPR) Society, invites original research papers in all areas of theory and applications of multimedia information technology.
+
+      ### Technical Scope (not limited to)
 
       - Artificial Intelligence
-      - Multimedia Systems
-      - Multimedia Applications
-      - Graphics and 3D Modeling
-      - Embedded Systems for Multimedia
+      - Multimedia System
+      - Embedded System in Multimedia
+      - Database in Multimedia
       - Multimedia Information Security
-      - Human–Computer Interaction
-      - Digital Signal, Image, and Video Processing
+      - Internet Technology and Social Media
+      - Multimedia Applications
+      - Human Computer Interaction
+      - Digital Signal, Image and Video Processing
+      - Graphics and 3D Modeling
       - Multimedia Networks and Communication
-      - Virtual Reality and Media Arts
+      - Multimedia Contents
+      - Game and Media Arts
+      - Virtual Reality
+
+      ### Conference Proceedings (Optional)
+
+      The accepted papers of MITA2026 will be published by Springer in the proceedings of Communications in Computer and Information Science (CCIS) series.
+      Springer CCIS series is abstracted and indexed in DBLP, EI Compendex, INSPEC, Japanese Science and Technology Agency (JST), Norwegian Register for Scientific Journals and Series, SCImago, SCOPUS, and zbMATH.
+
+      ### Special Issues
+
+      - Applied Sciences (SCIE, IF 2.5, Q1)
+      - Journal of Multimedia Information System (KCI, Google Scholar)
+
+      **E-mail:** kmms@kmms.or.kr / kmms1@kmms.or.kr
   call-for-papers/call-for-conference-paper:
     title: Call for Conference Paper
     content: |
@@ -152,7 +176,7 @@ pages:
 
       - **Springer CCIS Track**: peer-reviewed, published by Springer CCIS
       - **Regular MITA Track**: peer-reviewed proceedings
-      - **Abstract Track – Poster Session only**: peer-reviewed proceedings
+      - **Abstract Track ??Poster Session only**: peer-reviewed proceedings
   call-for-papers/call-for-journal-paper:
     title: Call for Journal Paper
     content: |
@@ -192,9 +216,15 @@ pages:
     content: |
       ### Submission Information
 
-      CCIS Track submissions must follow the Springer CCIS template. MITA Track submissions follow the standard MITA format. All papers undergo rigorous peer review.
+      Submission should not substantially duplicate work that any of the authors have published elsewhere or submitted in parallel to any other conference or workshop that has proceedings. At the end of the conference, session chairs and Program committee members will recommend some authors of well-presented papers be invited to submit extended versions of their presented papers for the publication in a special issue on Journal of Multimedia Information System (http://www.jmis.org), SCIE, and SCOPUS journals.
 
-      **Our submission site will be open very soon!**
+      The manuscript of the papers should be limited to a maximum length of 2\~4 pages (short paper). Format: A4 size, single space, double column and Time Roman of font size 10. The manuscript of the papers for CCIS Springer should be limited to 12~15 pages (Short CCIS is 6 pages).
+      At least one of authors for accepted papers must present one's paper at the conference.
+
+      Details on the electronic submission process are available on the MITA 2026 web site, http://www.icmita.org.
+      Authors can submit their papers through https://cmt3.research.microsoft.com/MITA2025.
+
+      The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
   registration:
     title: Registration
     content: |
@@ -235,100 +265,82 @@ pages:
       **Address**
       Auckland, New Zealand
 
-      The University of Auckland is New Zealand's leading university, located in the heart of Auckland city.
+      Auckland offers a dynamic setting where world-class conference facilities meet stunning natural scenery.
+      As New Zealand's largest and most diverse city, it provides an inspiring backdrop for productive academic exchange.
+      Visitors can easily unwind with vibrant waterfront dining, cultural attractions, and breathtaking coastal landscapes.
+      From professional gatherings to memorable leisure experiences, Auckland delivers the perfect balance of work and relaxation.
+
+      The University of Auckland, New Zealand's leading research institution, offers a vibrant academic environment at the heart of the city.
+      Its modern facilities, strong global reputation, and diverse scholarly community make it an ideal venue for hosting international conferences.
+      With excellent accessibility and a campus surrounded by cultural and urban attractions, it provides a seamless blend of productivity and inspiration.
 
       **Map**
       [Open in Google Maps](https://maps.google.com/?q=The%20University%20of%20Auckland)
 committee:
   - role: General Chair
-    name: Byung Gyu Kim
-    affiliation: "Sookmyung Women's University, South Korea"
-    image: images/COMMITTEE/김병규교수.png
+    image: "images/COMMITTEE/byunggyu-kim.png"
+    name: Byung-Gyu Kim
+    affiliation: "Sookmyung Women's University, Republic of Korea"
   - role: Organizing Committee Co-Chairs
-    name: Namje Park
-    affiliation: "Jeju National University, South Korea"
-    image: images/COMMITTEE/박남제교수.jpg
-  - role: Organizing Committee Co-Chairs
-    name: Hiroo Sekiya
-    affiliation: "Chiba University, Japan"
-    image: images/COMMITTEE/Hiroo Sekiya.png
-  - role: Program Committee Co-Chair, CCMS Technical Program Committee Co-Chairs
+    image: "images/COMMITTEE/deokwoo-lee.jpg"
     name: Deokwoo Lee
-    affiliation: "Keimyung University, South Korea"
-    image: images/COMMITTEE/이덕우교수.jpg
-  - role: Program Committee Co-Chair
-    name: Hidehiro Nakano
-    affiliation: "Tokyo City University, Japan"
-    image: images/COMMITTEE/Hidehiro Nakano.jpg
-  - role: Program Committee Co-Chair
+    affiliation: "Keimyung University, Republic of Korea"
+  - role: Organizing Committee Co-Chairs
+    image: "images/COMMITTEE/Aniket Mahanti.jpg"
+    name: Aniket Mahanti
+    affiliation: "University of Auckland, New Zealand"
+  - role: Organizing Committee Co-Chairs
+    image: "images/COMMITTEE/Wen-Huang Cheng.jpg"
     name: Wen-Huang Cheng
     affiliation: "National Taiwan University, Taiwan"
-    image: images/COMMITTEE/Wen-Huang Cheng.jpg
-  - role: CCMS Organizing Committee Co-Chairs
-    name: Young-Woo Kwon
-    affiliation: "Kyungpook National University, South Korea"
-    image: images/COMMITTEE/권영우교수.jpg
-  - role: CCMS Organizing Committee Co-Chairs
-    name: Atsushi Uchida
-    affiliation: "Saitama University, Japan"
-    image: images/COMMITTEE/Atsushi.jpg
-  - role: CCMS Technical Program Committee Co-Chairs
-    name: Noriaki Kamiyama
-    affiliation: "Ritsumeikan University, Japan"
-    image: images/COMMITTEE/Noriaki Kamiyama.jpg
-  - role: CCMS Technical Program Committee Co-Chairs
-    name: Kazutaka Kanno
-    affiliation: "Saitama University, Japan"
-    image: images/COMMITTEE/Kazutaka.jpg
-  - role: CCMS Technical Program Committee Co-Chairs
-    name: Ryo Nakamura
-    affiliation: "Fukuoka University, Japan"
-    image: images/COMMITTEE/Ryo.jpg
-  - role: Plenary Chair
-    name: Young-Ho Park
-    affiliation: "Sookmyung Women’s University, South Korea"
-    image: images/COMMITTEE/박영호교수.jpg
-  - role: Special Session Co-Chairs
-    name: Sanghyun Seo
-    affiliation: "Chung-Ang University, South Korea"
-    image: images/COMMITTEE/서상현교수.jpg
-  - role: Special Session Co-Chairs
-    name: Partha Pratim Roy
-    affiliation: "IIT Roorkey, India"
-    image: images/COMMITTEE/PPRoy.jpg
-  - role: Tutorial Co-Chairs
-    name: Sangoh Park
-    affiliation: "Chung-Ang University, South Korea"
-    image: images/COMMITTEE/박상오교수.jpg
-  - role: Tutorial Co-Chairs
-    name: Lu Leng
-    affiliation: "Nanchang Hangkong University, China"
-    image: images/COMMITTEE/Lu_Leng.png
-  - role: Women ICT Session Chair
-    name: Hyeyoung Ko
-    affiliation: "Seoul Women’s University, South Korea"
-    image: images/COMMITTEE/고혜영교수.jpg
-  - role: Educational Activities Chair
+  - role: Program Committee Co-Chairs
+    image: "images/COMMITTEE/taewan-kim.jpg"
     name: Taewan Kim
-    affiliation: "Dongduk Women’s University, South Korea"
-    image: images/COMMITTEE/김태완교수.jpg
+    affiliation: "Dongduk Women's University, Republic of Korea"
+  - role: Program Committee Co-Chairs
+    image: "images/COMMITTEE/Naveen Chilamkurti.jpg"
+    name: Naveen Chilamkurti
+    affiliation: "La Trobe University, Australia"
+  - role: Workshop Chair
+    image: "images/COMMITTEE/Farhad Mehdipour.jpg"
+    name: Farhad Mehdipour
+    affiliation: "Otago Polytechnic, New Zealand"
+  - role: Plenary Chair
+    image: ""
+    name: TBD
+    affiliation: ""
+  - role: Special Session Co-Chairs
+    image: ""
+    name: TBD
+    affiliation: ""
+  - role: Tutorial Co-Chairs
+    image: ""
+    name: TBD
+    affiliation: ""
+  - role: Women ICT Session Chair
+    image: ""
+    name: TBD
+    affiliation: ""
+  - role: Educational Activities Chair
+    image: ""
+    name: TBD
+    affiliation: ""
   - role: Publication Co-Chairs
-    name: Suk-Hwan Lee
-    affiliation: "Dong-A University, South Korea"
-    image: images/COMMITTEE/이석환교수.jpg
-  - role: Publication Co-Chairs
-    name: Jiwoo Kang
-    affiliation: "Sookmyung Women’s University, South Korea"
-    image: images/COMMITTEE/강지우교수.jpg
+    image: ""
+    name: TBD
+    affiliation: ""
   - role: Local Arrangement Chair
-    name: Seok Chan Jeong
-    affiliation: "Dong-Eui University, South Korea"
-    image: images/COMMITTEE/정석찬교수.jpg
+    image: ""
+    name: TBD
+    affiliation: ""
+  - role: Financial Chair
+    image: ""
+    name: TBD
+    affiliation: ""
   - role: Publicity Chair
-    name: Se-Hoon Jung
-    affiliation: "Sunchon National University, South Korea"
-    image: images/COMMITTEE/정세훈교수.jpg
-
+    image: "images/COMMITTEE/youngwoo-kwon.jpg"
+    name: Youngwoo Kwon
+    affiliation: "Kyungpook National University, Republic of Korea"
 footer:
   copyright: (c) 2026 MITA. All Rights Reserved.
   contact: "Tel: +82-51-712-9602 / E-mail: kmms1@kmms.or.kr"
@@ -468,3 +480,9 @@ workshopSchedules:
           title: "Paper Session 2"
           note: "AI Applications"
           location: "Room C"
+
+
+
+
+
+

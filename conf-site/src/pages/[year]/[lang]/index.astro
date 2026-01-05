@@ -44,19 +44,36 @@ const featuredCommittee = committee.filter((member) => {
 });
 
 const base = import.meta.env.BASE_URL;
+const addTrailingSlash = (path: string) => {
+  if (!path) return path;
+  if (path.endsWith("/")) return path;
+  if (/\.[a-zA-Z0-9]+$/.test(path)) return path;
+  return `${path}/`;
+};
+
+const getAssetUrl = (path: string) => {
+  if (!path) return "";
+  if (path.startsWith("http")) return path;
+  const normalizedBase = base.endsWith("/") ? base : base + "/";
+  const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+  return `${normalizedBase}${encodeURI(cleanPath)}`;
+};
+
 const getUrl = (path: string) => {
   if (!path) return "";
   if (path.startsWith("http")) return path;
 
   const normalizedBase = base.endsWith("/") ? base : base + "/";
-  // Remove leading slash from path to avoid double slashes when joining with normalizedBase
   const cleanPath = path.startsWith("/") ? path.slice(1) : path;
-
-  // If the clean path already starts with the base name (excluding leading/trailing slashes),
-  // we need to be careful not to double-prefix.
-  // But usually, base is like "/ConferenceHomepage/" and cleanPath is "images/..."
-  return `${normalizedBase}${cleanPath}`;
+  const finalPath = addTrailingSlash(cleanPath);
+  return `${normalizedBase}${finalPath}`;
 };
+
+const noticePageUrl = getUrl(`${year}/${lang}/notice`);
+const noticeItems = notice.map((item, index) => ({
+  ...item,
+  link: `${noticePageUrl}#notice-${String(notice.length - index).padStart(2, "0")}`,
+}));
 ---
 
 <Layout title={meta.title} lang={lang} year={year} menuLabels={menu}>
@@ -234,7 +251,11 @@ const getUrl = (path: string) => {
       <div class="space-y-12 order-2 lg:order-1">
         <!-- Notice Section -->
         <section>
-          <NoticeBoard notices={notice} title="News & Notice" />
+          <NoticeBoard
+            notices={noticeItems}
+            title="News & Notice"
+            seeAllLink={noticePageUrl}
+          />
         </section>
 
         <section id="about">
@@ -315,7 +336,7 @@ const getUrl = (path: string) => {
                   <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0 overflow-hidden">
                     {member.image ? (
                       <img
-                        src={getUrl(member.image)}
+                        src={getAssetUrl(member.image)}
                         alt={member.name}
                         class="w-full h-full object-cover"
                       />
