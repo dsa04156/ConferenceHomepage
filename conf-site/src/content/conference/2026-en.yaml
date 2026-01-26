@@ -223,9 +223,7 @@ pages:
       At least one of authors for accepted papers must present one's paper at the conference.
 
       Details on the electronic submission process are available on the MITA 2026 web site, http://www.icmita.org.
-      Authors can submit their papers through https://cmt3.research.microsoft.com/MITA2025.
-
-      The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+      Authors can submit their papers through https://cmt3.research.microsoft.com/MITA2026.
   registration:
     title: Registration
     content: |
@@ -278,11 +276,11 @@ committee:
   - role: General Chair
     image: "images/COMMITTEE/byunggyu-kim.png"
     name: Byung-Gyu Kim
-    affiliation: "Sookmyung Women's University, Republic of Korea"
+    affiliation: "Sookmyung Women's University, South Korea"
   - role: Organizing Committee Co-Chairs
     image: "images/COMMITTEE/deokwoo-lee.jpg"
     name: Deokwoo Lee
-    affiliation: "Keimyung University, Republic of Korea"
+    affiliation: "Keimyung University, South Korea"
   - role: Organizing Committee Co-Chairs
     image: "images/COMMITTEE/Aniket Mahanti.jpg"
     name: Aniket Mahanti
@@ -294,7 +292,7 @@ committee:
   - role: Program Committee Co-Chairs
     image: "images/COMMITTEE/taewan-kim.jpg"
     name: Taewan Kim
-    affiliation: "Dongduk Women's University, Republic of Korea"
+    affiliation: "Dongduk Women's University, South Korea"
   - role: Program Committee Co-Chairs
     image: "images/COMMITTEE/Naveen Chilamkurti.jpg"
     name: Naveen Chilamkurti
@@ -303,43 +301,49 @@ committee:
     image: "images/COMMITTEE/Farhad Mehdipour.jpg"
     name: Farhad Mehdipour
     affiliation: "Otago Polytechnic, New Zealand"
-  - role: Plenary Chair
+  - role: Plenary Co-Chairs
     image: ""
-    name: TBD
-    affiliation: ""
+    name: Suk-Hwan Lee
+    affiliation: "Dong-A University, South Korea"
+  - role: Plenary Co-Chairs
+    image: ""
+    name: P. P. Roy
+    affiliation: "IIT (ISM) Dhanbad, India"
   - role: Special Session Co-Chairs
     image: ""
-    name: TBD
-    affiliation: ""
+    name: Ji-Woo Kang
+    affiliation: "Sookmyung Women’s University, South Korea"
   - role: Tutorial Co-Chairs
     image: ""
-    name: TBD
-    affiliation: ""
-  - role: Women ICT Session Chair
+    name: Kwang Gi Kim
+    affiliation: "Gachon university, South Korea"
+  - role: Women ICT Session Co-Chairs
     image: ""
-    name: TBD
-    affiliation: ""
+    name: Hyeyoung Ko
+    affiliation: "Seoul women’s University, South Korea"
+  - role: Women ICT Session Co-Chairs
+    image: ""
+    name: Hyun-A PArk
+    affiliation: "Honam University, South Korea"
   - role: Educational Activities Chair
     image: ""
-    name: TBD
-    affiliation: ""
+    name: Se-Hoon Jung
+    affiliation: "Sunchon National University, South Korea"
   - role: Publication Co-Chairs
     image: ""
-    name: TBD
-    affiliation: ""
+    name: Eung-Soo Kim
+    affiliation: "Pusan University of Foreign Studies, South Korea"
   - role: Local Arrangement Chair
     image: ""
-    name: TBD
-    affiliation: ""
+    name: Sang Uk Sagong
+    affiliation: "Keimyung University, South Korea"
   - role: Financial Chair
     image: ""
-    name: TBD
-    affiliation: ""
-  - role: Publicity Chair
-    image: "images/COMMITTEE/youngwoo-kwon.jpg"
-    name: Youngwoo Kwon
-    affiliation: "Kyungpook National University, Republic of Korea"
+    name: Young-Woo Kwon
+    affiliation: "Kyungpook National University, South Korea"
 footer:
+  content:
+    The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft, and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
   copyright: (c) 2026 MITA. All Rights Reserved.
   contact: "Tel: +82-51-712-9602 / E-mail: kmms1@kmms.or.kr"
 keynotes:
@@ -478,10 +482,3 @@ workshopSchedules:
           title: "Paper Session 2"
           note: "AI Applications"
           location: "Room C"
-
-
-
-
-
-
-
